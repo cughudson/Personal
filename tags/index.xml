@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Hudson</title>
-    <link>https://github.com/cughudson/Personal/tags/</link>
+    <link>https://github.com/cughudson/personal/tags/</link>
     <description>Hudson (Tags)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
     
-    <atom:link href="https://github.com/cughudson/Personal/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/cughudson/personal/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
