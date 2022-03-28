@@ -2,12 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://cughudson.github.io/personal/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/personal/posts/my-first-article/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/personal/posts/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/personal/tags/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/personal/tags/test/</loc>
+    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://cughudson.github.io/personal/about/</loc>
   </url><url>
     <loc>https://cughudson.github.io/personal/categories/</loc>
-  </url><url>
-    <loc>https://cughudson.github.io/personal/</loc>
-  </url><url>
-    <loc>https://cughudson.github.io/personal/tags/</loc>
   </url>
 </urlset>

@@ -7,9 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
+    <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://cughudson.github.io/personal/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My First Article</title>
+      <link>https://cughudson.github.io/personal/posts/my-first-article/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cughudson.github.io/personal/posts/my-first-article/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;./../../static/image/temp.jpg&#34; alt=&#34;This is a image&#34; /&gt;
+这是谢益辉的个人主页。2013 年底我从 Ames 村办大学统计系毕业，终于解决了人生前 30 年被问最多的问题：“你怎么还没毕业？”目前就职于 RStudio。我支持开源，喜欢折腾网站和代码，是一个高度自我驱动的人。打羽毛球爱勾对角，打乒乓球像太极，网球满场子捡球，篮球容易被撞飞，攀岩一次，腿软。宅，口重，嗜辣，屡教不改。智商中等偏下，对麻将和三国杀有不可逾越的认知障碍，实变函数课上曾被老师叫醒。略好读书，偶尔也在网上乱翻帖子，对诗词楹联比较感兴趣，目前比较中意的一联是：千秋邈矣独留我；百战归来再读书。最喜欢的一首词是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;秋邈矣独留我&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title></title>
