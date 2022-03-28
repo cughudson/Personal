@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://github.com/cughudson/personal/about/</loc>
+    <loc>https://cughudson.github.io/personal/about/</loc>
   </url><url>
-    <loc>https://github.com/cughudson/personal/categories/</loc>
+    <loc>https://cughudson.github.io/personal/categories/</loc>
   </url><url>
-    <loc>https://github.com/cughudson/personal/</loc>
+    <loc>https://cughudson.github.io/personal/</loc>
   </url><url>
-    <loc>https://github.com/cughudson/personal/tags/</loc>
+    <loc>https://cughudson.github.io/personal/tags/</loc>
   </url>
 </urlset>
