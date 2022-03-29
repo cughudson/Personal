@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>resume on Hudson</title>
+    <link>https://cughudson.github.io/personal/tags/resume/</link>
+    <description>Hudson (resume)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Hudson</copyright>
+    
+    <atom:link href="https://cughudson.github.io/personal/tags/resume/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://cughudson.github.io/personal/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cughudson.github.io/personal/about/</guid>
+      <description>&lt;p&gt;我的名字***，毕业于***,专业为地理信息系统，同时辅修有***大学的建筑学专业&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
