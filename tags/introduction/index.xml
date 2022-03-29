@@ -17,7 +17,19 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cughudson.github.io/personal/about/</guid>
-      <description>&lt;p&gt;我的名字***，毕业于***,专业为地理信息系统，同时辅修有***大学的建筑学专业&lt;/p&gt;
+      <description>&lt;p&gt;我的名字***，毕业于***,本科专业为专业为地理信息系统(Geography Information System)，同时辅修有***大学的建筑学专业，目前在中国建筑（China State Construction）旗下的中建五局做幕墙BIM实施工作，
+以下为我业余开发的几个软件的简单介绍&lt;/p&gt;
+&lt;p style=&#34;color:lightblue&#34;&gt;DWGLibrary For AutoCAD&lt;/p&gt;
+编程语言：*C#*, *innoSetupScript*
+&lt;p&gt;开发平台：.NET FrameWork, Winform&lt;/p&gt;
+&lt;p style=&#34;color:lightblue&#34;&gt;ModelChecker For Rhino&lt;/p&gt; 
+&gt;内容写在这里
+&lt;p&gt;&lt;strong&gt;Okavanko For Grasshopper&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;内容写在这里&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p style=&#34;color:lightblue&#34;&gt;VR Player(JavaScript) &amp;&amp; VR Player(ActionScript)&lt;/p&gt;
+更多项目请移步到本人[Github](https://github.com/cughudson)站点，谢谢
 </description>
     </item>
     
