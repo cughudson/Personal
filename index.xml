@@ -113,11 +113,18 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
       
       <guid>https://cughudson.github.io/resume/</guid>
       <description>&lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;基本信息 / Basic Information&lt;/h3&gt;
-    &lt;div&gt;
-        &lt;p class=&#34;avator&#34;&gt;
+    &lt;div class=&#34;table-col&#34;&gt;
+        &lt;span class=&#34;avator&#34; style=&#34;margin-right:1em;padding-right:1em&#34;&gt;
             &lt;img src=&#34;./../image/hudson.jpg&#34;/&gt;
-        &lt;/p&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;table-col block&#34;&gt;
+        &lt;span&gt;
+            &lt;h1 style=&#34;font-family:Helvetica;font-size:2.5em&#34;&gt;Hudson&lt;/h1&gt;
+            &lt;span class=&#34;title&#34;&gt;电话: &lt;a href=&#34;tel:13312949505&#34;&gt;1334348355&lt;/a&gt;&lt;/span&gt;&lt;br/&gt;
+            &lt;span class=&#34;title&#34;&gt;邮箱: &lt;a href=&#34;mailto:cughudson@126.com&#34;&gt;cughudson@126.com&lt;/a&gt;&lt;/span&gt;&lt;br/&gt;
+            &lt;span class=&#34;title&#34;&gt;地址:&lt;a href=&#34;https://map.baidu.com/@12581798.701602291,3243608.0321966736,18.21z&#34;&gt;湖南省长沙市雨花区XXXXXXXX&lt;/a&gt;&lt;/span&gt;&lt;br/&gt;
+        &lt;/span&gt;
     &lt;/div&gt;
 &lt;/section&gt;
 &lt;section class=&#34;card&#34;&gt;
@@ -153,7 +160,7 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col&#34;&gt;2020年5月 ~ 2021年3月&lt;/span&gt;
             &lt;span class=&#34;table-col&#34;&gt;中建一局华南区域公司 信息部&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;信息主管&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;信息化主管&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col&#34;&gt;2021年5月 ~ 2022年3月&lt;/span&gt;
@@ -180,7 +187,7 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
         &lt;/div&gt;
         &lt;div class=&#34;row&#34;&gt;
             &lt;p&gt;
-            这是谢益辉的个人主页。2013 年底我从 Ames 村办大学统计系毕业，终于解决了人生前 30 年被问最多的问题：“你怎么还没毕业？”目前就职于 RStudio。我支持开源，喜欢折腾网站和代码，是一个高度自我驱动的人。打羽毛球爱勾对角，打乒乓球像太极，网球满场子捡球
+           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             &lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
@@ -208,7 +215,7 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
         &lt;/div&gt;
         &lt;div class=&#34;row&#34;&gt;
             &lt;p&gt;
-            这是谢益辉的个人主页。2013 年底我从 Ames 村办大学统计系毕业，终于解决了人生前 30 年被问最多的问题：“你怎么还没毕业？”目前就职于 RStudio。我支持开源，喜欢折腾网站和代码，是一个高度自我驱动的人。打羽毛球爱勾对角，打乒乓球像太极，网球满场子捡球
+           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             &lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
