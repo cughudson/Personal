@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Hudson</title>
-    <link>https://cughudson.github.io/personal/categories/</link>
+    <link>https://cughudson.github.io/categories/</link>
     <description>Hudson (Categories)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
     
-    <atom:link href="https://cughudson.github.io/personal/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cughudson.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

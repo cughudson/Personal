@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hudson</title>
-    <link>https://cughudson.github.io/personal/</link>
+    <link>https://cughudson.github.io/</link>
     <description>Hudson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
     <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="https://cughudson.github.io/personal/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cughudson.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DWGLibrary For AutoCAD插件开发</title>
-      <link>https://cughudson.github.io/personal/posts/dwglibraryforautocad/</link>
+      <link>https://cughudson.github.io/posts/dwglibraryforautocad/</link>
       <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://cughudson.github.io/personal/posts/dwglibraryforautocad/</guid>
+      <guid>https://cughudson.github.io/posts/dwglibraryforautocad/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;./../../image/dfa1.jpg&#34; alt=&#34;DWGLibrary For AutoCAD&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;DWGLibrary For AutoCAD 软件界面&lt;/p&gt;  
 &lt;h2 id=&#34;软件开发背景及意义&#34; &gt;软件开发背景及意义
@@ -85,10 +85,10 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
     
     <item>
       <title>中建科技馆BIM实施</title>
-      <link>https://cughudson.github.io/personal/posts/%E4%B8%AD%E5%BB%BA%E5%85%89%E8%B0%B7%E4%B9%8B%E6%98%9Fbim%E5%AE%9E%E6%96%BD/</link>
+      <link>https://cughudson.github.io/posts/%E4%B8%AD%E5%BB%BA%E5%85%89%E8%B0%B7%E4%B9%8B%E6%98%9Fbim%E5%AE%9E%E6%96%BD/</link>
       <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://cughudson.github.io/personal/posts/%E4%B8%AD%E5%BB%BA%E5%85%89%E8%B0%B7%E4%B9%8B%E6%98%9Fbim%E5%AE%9E%E6%96%BD/</guid>
+      <guid>https://cughudson.github.io/posts/%E4%B8%AD%E5%BB%BA%E5%85%89%E8%B0%B7%E4%B9%8B%E6%98%9Fbim%E5%AE%9E%E6%96%BD/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;./../../image/wh.jpg&#34; alt=&#34;中建科技馆&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;中建科技馆（湖北·武汉）&lt;/p&gt;
 &lt;!-- Add Text Here --&gt;
@@ -97,10 +97,10 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
     
     <item>
       <title>深圳国际会展中心BIM实施</title>
-      <link>https://cughudson.github.io/personal/posts/%E6%B7%B1%E5%9C%B3%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83bim%E5%AE%9E%E6%96%BD/</link>
+      <link>https://cughudson.github.io/posts/%E6%B7%B1%E5%9C%B3%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83bim%E5%AE%9E%E6%96%BD/</link>
       <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://cughudson.github.io/personal/posts/%E6%B7%B1%E5%9C%B3%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83bim%E5%AE%9E%E6%96%BD/</guid>
+      <guid>https://cughudson.github.io/posts/%E6%B7%B1%E5%9C%B3%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83bim%E5%AE%9E%E6%96%BD/</guid>
       <description>&lt;!-- Add Text Here --&gt;
 &lt;p&gt;&lt;img src=&#34;./../../image/sz.jpg&#34; alt=&#34;深圳国际会展中心&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;深圳国际会展中心（广东·深圳）&lt;/p&gt;</description>
@@ -108,127 +108,127 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
     
     <item>
       <title></title>
-      <link>https://cughudson.github.io/personal/resume/</link>
+      <link>https://cughudson.github.io/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cughudson.github.io/personal/resume/</guid>
-      <description>&lt;h1 id=&#34;hudsons-resume&#34; &gt;Hudson&amp;rsquo;s Resume
-&lt;span&gt;
-    &lt;a href=&#34;#hudsons-resume&#34;&gt;
-        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/span&gt;
-&lt;/h1&gt;&lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;基本信息&lt;/h3&gt;
+      <guid>https://cughudson.github.io/resume/</guid>
+      <description>&lt;section class=&#34;card&#34;&gt;
+    &lt;h3&gt;基本信息 / Basic Information&lt;/h3&gt;
     &lt;div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2010年9月~2014年7月&lt;/span&gt;
-            &lt;span class=&#34;scholar&#34;&gt;本科&lt;/span&gt;
-            &lt;span class=&#34;school&#34;&gt;中国地质大学（武汉）&lt;/span&gt;
-            &lt;span class=&#34;master&#34;&gt;地理信息系统&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2012年9月~2014年7月&lt;/span&gt;
-            &lt;span class=&#34;scholar&#34;&gt;本科(七校联合办学)&lt;/span&gt;
-            &lt;span class=&#34;school&#34;&gt;华中科技大学&lt;/span&gt;
-            &lt;span class=&#34;master&#34;&gt;建筑学&lt;/span&gt;
-        &lt;/div&gt;
+        &lt;p class=&#34;avator&#34;&gt;
+            &lt;img src=&#34;./../image/hudson.jpg&#34;/&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
 &lt;/section&gt;
 &lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;教育经历&lt;/h3&gt;
+    &lt;h3&gt;教育经历 / Education&lt;/h3&gt;
     &lt;div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2010年9月~2014年7月&lt;/span&gt;
-            &lt;span class=&#34;scholar&#34;&gt;本科&lt;/span&gt;
-            &lt;span class=&#34;school&#34;&gt;中国地质大学（武汉）&lt;/span&gt;
-            &lt;span class=&#34;master&#34;&gt;地理信息系统&lt;/span&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2010年9月~2014年7月&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;本科&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;中国地质大学（武汉）&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;地理信息系统&lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2012年9月~2014年7月&lt;/span&gt;
-            &lt;span class=&#34;scholar&#34;&gt;本科(七校联合办学)&lt;/span&gt;
-            &lt;span class=&#34;school&#34;&gt;华中科技大学&lt;/span&gt;
-            &lt;span class=&#34;master&#34;&gt;建筑学&lt;/span&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2012年9月~2014年7月&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;本科(七校联合办学)&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;华中科技大学&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;建筑学&lt;/span&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/section&gt;
 &lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;工作成果&lt;/h3&gt;
+    &lt;h3&gt;工作经历 / Work&lt;/h3&gt;
     &lt;div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2014年7月 ~ 2016年5月&lt;/span&gt;
-            &lt;span class=&#34;company&#34;&gt;中建一局华南区域公司&lt;/span&gt;
-            &lt;span class=&#34;career&#34;&gt;技术员/测量工程师&lt;/span&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2014年7月 ~ 2016年5月&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;中建一局华南区域公司&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;技术员/测量工程师&lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2016年9月 ~ 2020年4月&lt;/span&gt;
-            &lt;span class=&#34;company&#34;&gt;中建深圳装饰有限公司 设计研究院&lt;/span&gt;
-            &lt;span class=&#34;career&#34;&gt;参数化设计师&lt;/span&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2016年9月 ~ 2020年4月&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;中建深圳装饰有限公司 设计研究院&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;参数化设计师&lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2020年5月 ~ 2021年3月&lt;/span&gt;
-            &lt;span class=&#34;company&#34;&gt;中建一局华南区域公司 信息部&lt;/span&gt;
-            &lt;span class=&#34;career&#34;&gt;信息主管&lt;/span&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2020年5月 ~ 2021年3月&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;中建一局华南区域公司 信息部&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;信息主管&lt;/span&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2021年5月 ~ 2022年3月&lt;/span&gt;
-            &lt;span class=&#34;company&#34;&gt;中建不二幕墙装饰有限公司 设计研究院&lt;/span&gt;
-            &lt;span class=&#34;career&#34;&gt;BIM工程师&lt;/span&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2021年5月 ~ 2022年3月&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;中建不二幕墙装饰有限公司 设计研究院&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;BIM工程师&lt;/span&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/section&gt;
 &lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;主要项目经历&lt;/h3&gt;
-    &lt;div&gt;
+    &lt;h3&gt;项目经历 / Project&lt;/h3&gt;
+    &lt;div class=&#34;item&#34;&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;a href=&#34;#&#34;&gt;深圳国际会展中心BIM项目实施&lt;/a&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2018年4月 ~ 2019年3月&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;主要业绩&lt;/span&gt;
+        &lt;/div&gt;
         &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;year&#34;&gt;20**~20**&lt;/span&gt;
-            &lt;span class=&#34;content&#34;&gt;*********&lt;/sspan&gt;
+            &lt;p&gt;
+            这是谢益辉的个人主页。2013 年底我从 Ames 村办大学统计系毕业，终于解决了人生前 30 年被问最多的问题：“你怎么还没毕业？”目前就职于 RStudio。我支持开源，喜欢折腾网站和代码，是一个高度自我驱动的人。打羽毛球爱勾对角，打乒乓球像太极，网球满场子捡球
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;Revit&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;Grasshopper&lt;/code&gt;
+            &lt;/span&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-&lt;/section&gt;
-    &lt;/div&gt;
-&lt;/section&gt;
-&lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;工作成果&lt;/h3&gt;
-    &lt;div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2014年7月 ~ 2016年5月&lt;/span&gt;
-            &lt;span class=&#34;company&#34;&gt;中建一局华南区域公司&lt;/span&gt;
-            &lt;span class=&#34;career&#34;&gt;技术员/测量工程师&lt;/span&gt;
+    &lt;div class=&#34;item&#34;&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;a href=&#34;#&#34;&gt;深圳国际会展中心BIM项目实施&lt;/a&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2018年4月 ~ 2019年3月&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;主要业绩&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2016年9月 ~ 2020年4月&lt;/span&gt;
-            &lt;span class=&#34;company&#34;&gt;中建深圳装饰有限公司 设计研究院&lt;/span&gt;
-            &lt;span class=&#34;career&#34;&gt;参数化设计师&lt;/span&gt;
+            &lt;p&gt;
+            这是谢益辉的个人主页。2013 年底我从 Ames 村办大学统计系毕业，终于解决了人生前 30 年被问最多的问题：“你怎么还没毕业？”目前就职于 RStudio。我支持开源，喜欢折腾网站和代码，是一个高度自我驱动的人。打羽毛球爱勾对角，打乒乓球像太极，网球满场子捡球
+            &lt;/p&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2020年5月 ~ 2021年3月&lt;/span&gt;
-            &lt;span class=&#34;company&#34;&gt;中建一局华南区域公司 信息部&lt;/span&gt;
-            &lt;span class=&#34;career&#34;&gt;信息主管&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;time&#34;&gt;2021年5月 ~ 2022年3月&lt;/span&gt;
-            &lt;span class=&#34;company&#34;&gt;中建不二幕墙装饰有限公司 设计研究院&lt;/span&gt;
-            &lt;span class=&#34;career&#34;&gt;BIM工程师&lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/section&gt;
-&lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;主要项目经历&lt;/h3&gt;
-    &lt;div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;span class=&#34;year&#34;&gt;20**~20**&lt;/span&gt;
-            &lt;span class=&#34;content&#34;&gt;*********&lt;/sspan&gt;
-        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;Revit&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;Grasshopper&lt;/code&gt;
+            &lt;/span&gt;
+        &lt;div&gt;
     &lt;/div&gt;
 &lt;/section&gt;</description>
     </item>
     
     <item>
       <title>关于</title>
-      <link>https://cughudson.github.io/personal/about/</link>
+      <link>https://cughudson.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cughudson.github.io/personal/about/</guid>
+      <guid>https://cughudson.github.io/about/</guid>
       <description>&lt;p&gt;我的名字***，于2014年毕业于中国地质大学（武汉）,本科专业为地理信息系统，同时辅修有华中科技大学的建筑学专业，毕业至今一直在中建体系内从事技术工作，目前在中国建筑（CSCEC）旗下的中建五局做幕墙BIM实施。从业以来参与过&lt;a href=&#34;http://localhost:1313/personal/posts/%E6%B7%B1%E5%9C%B3%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83bim%E5%AE%9E%E6%96%BD/&#34;&gt;深圳国际会展中心&lt;/a&gt;，&lt;a href=&#34;http://localhost:1313/personal/posts/%E4%B8%AD%E5%BB%BA%E5%85%89%E8%B0%B7%E4%B9%8B%E6%98%9Fbim%E5%AE%9E%E6%96%BD/&#34;&gt;中建科技馆&lt;/a&gt;等项目的BIM实施工作，其中前者为世界最大单体会展展馆，位于广东深圳，后者为世界最大不锈钢单体建筑，位于武汉光谷.&lt;/p&gt;
 &lt;p&gt;在做好本职工作的同时，在业余本人还喜欢编写程序，本网站即是本人使用&lt;code&gt;Hugo&lt;/code&gt;静态网页生成工具搭建的，目前托关于&lt;a href=&#34;http://github.com/cughudson/personal&#34;&gt;GitHub&lt;/a&gt;,通过自学本人已能够使用&lt;code&gt;JavaScript&lt;/code&gt;、&lt;code&gt;C#&lt;/code&gt;等编程语言编写一些简单的应用
 以下为我业余开发的几个软件的简单介绍&lt;/p&gt;

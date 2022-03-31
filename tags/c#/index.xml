@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C# on Hudson</title>
-    <link>https://cughudson.github.io/personal/tags/c#/</link>
+    <link>https://cughudson.github.io/tags/c#/</link>
     <description>Hudson (C#)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
     <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate>
     
-    <atom:link href="https://cughudson.github.io/personal/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cughudson.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DWGLibrary For AutoCAD插件开发</title>
-      <link>https://cughudson.github.io/personal/posts/dwglibraryforautocad/</link>
+      <link>https://cughudson.github.io/posts/dwglibraryforautocad/</link>
       <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://cughudson.github.io/personal/posts/dwglibraryforautocad/</guid>
+      <guid>https://cughudson.github.io/posts/dwglibraryforautocad/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;./../../image/dfa1.jpg&#34; alt=&#34;DWGLibrary For AutoCAD&#34; /&gt;&lt;/p&gt;
 &lt;p class=&#34;caption&#34;&gt;DWGLibrary For AutoCAD 软件界面&lt;/p&gt;  
 &lt;h2 id=&#34;软件开发背景及意义&#34; &gt;软件开发背景及意义
