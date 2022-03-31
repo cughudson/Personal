@@ -53,7 +53,7 @@
     
 
     
-        <link rel="stylesheet" href="https://cughudson.github.io/personal/css/style.min.b72a6fa8e3719aeec9e758ecf8cc9d88b9044160e86256c05473a1b1d0d9870b.css" integrity="sha256-typvqONxmu7J51js&#43;MydiLkEQWDoYlbAVHOhsdDZhws=">
+        <link rel="stylesheet" href="https://cughudson.github.io/personal/css/style.min.351cafd88acc435e630b9e931c7565b3012a20f3ef1ed7f0f53349e05f916d36.css" integrity="sha256-NRyv2IrMQ15jC56THHVlswEqIPPvHtfw9TNJ4F&#43;RbTY=">
     
 
 
@@ -180,13 +180,13 @@
     <nav>
         
         
-        <a class="" href="https://cughudson.github.io/personal/about/" title="">About</a>
+        <a class="" href="https://cughudson.github.io/personal/about/" title="">关于</a>
         
-        <a class="" href="https://cughudson.github.io/personal/tags/" title="">Tags</a>
+        <a class="" href="https://cughudson.github.io/personal/tags/" title="">标签</a>
         
-        <a class="" href="https://cughudson.github.io/personal/posts/" title="">Archive</a>
+        <a class="" href="https://cughudson.github.io/personal/posts/" title="">文章</a>
         
-        <a class="" href="https://cughudson.github.io/personal/resume/" title="">Resume</a>
+        <a class="" href="https://cughudson.github.io/personal/resume/" title="">我的简历</a>
         
     </nav>
 
@@ -235,7 +235,36 @@
     </a>
 </span>
 </h3><p>从软件的整个开发及分发过程来看，软件打包（package）不算是一个难点，之所以说难，是因为作为一个开发，很难接触到从软件开发、调试再到分发的整个过程，在Visual Studio中，可通过创建一个&quot;Installer&quot;工程实现软件打包，但该方法操作步骤比较繁琐。DWGLibrary For AutoCAD使用的是<code>InnoSetup</code>作为其打包工作，InnoSetup打包语言为Pascal，具备注册表的读写以及</p>
-<h3 id="dwg缩略显示" >DWG缩略显示
+<pre tabindex="0"><code class="language-Pascal" data-lang="Pascal">#define COMPANYNAME &#34;中建深圳装饰有限公司&#34;
+#ifdef ISADMIN
+   #define APPNAME &#34;DWGLibrary For AutoCAD(Admin)&#34;
+#else
+   #define APPNAME &#34;DWGLibrary For AutoCAD(Normal)&#34;
+#endif
+#define EMAIL &#34;cughudson@126.com&#34;
+#define PHONE &#34;13312949505&#34;
+#define PROGRAMMER &#34;cughudson&#34;
+
+[Setup]
+AppName=DWGLibrary For AutoCAD
+AppVersion=1.0.0
+AppId= &#34;2934D795-825A-4624-99C2-AC3C7390CC2A&#34;
+AppMutex = DWGLibraryForAutoCAD
+AppPublisher=&#34;{#COMPANYNAME}&#34;
+AppContact=&#34;{#EMAIL}&#34;
+</code></pre><h4 id="主要问题解决方案" >主要问题解决方案
+<span>
+    <a href="#%e4%b8%bb%e8%a6%81%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h4><h4 id="1" >（1）
+<span>
+    <a href="#1">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h4><h3 id="dwg缩略显示" >DWG缩略显示
 <span>
     <a href="#dwg%e7%bc%a9%e7%95%a5%e6%98%be%e7%a4%ba">
         <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>

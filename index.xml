@@ -45,7 +45,36 @@
     &lt;/a&gt;
 &lt;/span&gt;
 &lt;/h3&gt;&lt;p&gt;从软件的整个开发及分发过程来看，软件打包（package）不算是一个难点，之所以说难，是因为作为一个开发，很难接触到从软件开发、调试再到分发的整个过程，在Visual Studio中，可通过创建一个&amp;quot;Installer&amp;quot;工程实现软件打包，但该方法操作步骤比较繁琐。DWGLibrary For AutoCAD使用的是&lt;code&gt;InnoSetup&lt;/code&gt;作为其打包工作，InnoSetup打包语言为Pascal，具备注册表的读写以及&lt;/p&gt;
-&lt;h3 id=&#34;dwg缩略显示&#34; &gt;DWG缩略显示
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-Pascal&#34; data-lang=&#34;Pascal&#34;&gt;#define COMPANYNAME &amp;#34;中建深圳装饰有限公司&amp;#34;
+#ifdef ISADMIN
+   #define APPNAME &amp;#34;DWGLibrary For AutoCAD(Admin)&amp;#34;
+#else
+   #define APPNAME &amp;#34;DWGLibrary For AutoCAD(Normal)&amp;#34;
+#endif
+#define EMAIL &amp;#34;cughudson@126.com&amp;#34;
+#define PHONE &amp;#34;13312949505&amp;#34;
+#define PROGRAMMER &amp;#34;cughudson&amp;#34;
+
+[Setup]
+AppName=DWGLibrary For AutoCAD
+AppVersion=1.0.0
+AppId= &amp;#34;2934D795-825A-4624-99C2-AC3C7390CC2A&amp;#34;
+AppMutex = DWGLibraryForAutoCAD
+AppPublisher=&amp;#34;{#COMPANYNAME}&amp;#34;
+AppContact=&amp;#34;{#EMAIL}&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;主要问题解决方案&#34; &gt;主要问题解决方案
+&lt;span&gt;
+    &lt;a href=&#34;#%e4%b8%bb%e8%a6%81%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h4&gt;&lt;h4 id=&#34;1&#34; &gt;（1）
+&lt;span&gt;
+    &lt;a href=&#34;#1&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h4&gt;&lt;h3 id=&#34;dwg缩略显示&#34; &gt;DWG缩略显示
 &lt;span&gt;
     &lt;a href=&#34;#dwg%e7%bc%a9%e7%95%a5%e6%98%be%e7%a4%ba&#34;&gt;
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
@@ -89,11 +118,113 @@
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/span&gt;
-&lt;/h1&gt;</description>
+&lt;/h1&gt;&lt;section class=&#34;card&#34;&gt;
+    &lt;h3&gt;基本信息&lt;/h3&gt;
+    &lt;div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2010年9月~2014年7月&lt;/span&gt;
+            &lt;span class=&#34;scholar&#34;&gt;本科&lt;/span&gt;
+            &lt;span class=&#34;school&#34;&gt;中国地质大学（武汉）&lt;/span&gt;
+            &lt;span class=&#34;master&#34;&gt;地理信息系统&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2012年9月~2014年7月&lt;/span&gt;
+            &lt;span class=&#34;scholar&#34;&gt;本科(七校联合办学)&lt;/span&gt;
+            &lt;span class=&#34;school&#34;&gt;华中科技大学&lt;/span&gt;
+            &lt;span class=&#34;master&#34;&gt;建筑学&lt;/span&gt;
+        &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class=&#34;card&#34;&gt;
+    &lt;h3&gt;教育经历&lt;/h3&gt;
+    &lt;div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2010年9月~2014年7月&lt;/span&gt;
+            &lt;span class=&#34;scholar&#34;&gt;本科&lt;/span&gt;
+            &lt;span class=&#34;school&#34;&gt;中国地质大学（武汉）&lt;/span&gt;
+            &lt;span class=&#34;master&#34;&gt;地理信息系统&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2012年9月~2014年7月&lt;/span&gt;
+            &lt;span class=&#34;scholar&#34;&gt;本科(七校联合办学)&lt;/span&gt;
+            &lt;span class=&#34;school&#34;&gt;华中科技大学&lt;/span&gt;
+            &lt;span class=&#34;master&#34;&gt;建筑学&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class=&#34;card&#34;&gt;
+    &lt;h3&gt;工作成果&lt;/h3&gt;
+    &lt;div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2014年7月 ~ 2016年5月&lt;/span&gt;
+            &lt;span class=&#34;company&#34;&gt;中建一局华南区域公司&lt;/span&gt;
+            &lt;span class=&#34;career&#34;&gt;技术员/测量工程师&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2016年9月 ~ 2020年4月&lt;/span&gt;
+            &lt;span class=&#34;company&#34;&gt;中建深圳装饰有限公司 设计研究院&lt;/span&gt;
+            &lt;span class=&#34;career&#34;&gt;参数化设计师&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2020年5月 ~ 2021年3月&lt;/span&gt;
+            &lt;span class=&#34;company&#34;&gt;中建一局华南区域公司 信息部&lt;/span&gt;
+            &lt;span class=&#34;career&#34;&gt;信息主管&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2021年5月 ~ 2022年3月&lt;/span&gt;
+            &lt;span class=&#34;company&#34;&gt;中建不二幕墙装饰有限公司 设计研究院&lt;/span&gt;
+            &lt;span class=&#34;career&#34;&gt;BIM工程师&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class=&#34;card&#34;&gt;
+    &lt;h3&gt;主要项目经历&lt;/h3&gt;
+    &lt;div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;year&#34;&gt;20**~20**&lt;/span&gt;
+            &lt;span class=&#34;content&#34;&gt;*********&lt;/sspan&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class=&#34;card&#34;&gt;
+    &lt;h3&gt;工作成果&lt;/h3&gt;
+    &lt;div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2014年7月 ~ 2016年5月&lt;/span&gt;
+            &lt;span class=&#34;company&#34;&gt;中建一局华南区域公司&lt;/span&gt;
+            &lt;span class=&#34;career&#34;&gt;技术员/测量工程师&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2016年9月 ~ 2020年4月&lt;/span&gt;
+            &lt;span class=&#34;company&#34;&gt;中建深圳装饰有限公司 设计研究院&lt;/span&gt;
+            &lt;span class=&#34;career&#34;&gt;参数化设计师&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2020年5月 ~ 2021年3月&lt;/span&gt;
+            &lt;span class=&#34;company&#34;&gt;中建一局华南区域公司 信息部&lt;/span&gt;
+            &lt;span class=&#34;career&#34;&gt;信息主管&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;time&#34;&gt;2021年5月 ~ 2022年3月&lt;/span&gt;
+            &lt;span class=&#34;company&#34;&gt;中建不二幕墙装饰有限公司 设计研究院&lt;/span&gt;
+            &lt;span class=&#34;career&#34;&gt;BIM工程师&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class=&#34;card&#34;&gt;
+    &lt;h3&gt;主要项目经历&lt;/h3&gt;
+    &lt;div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;span class=&#34;year&#34;&gt;20**~20**&lt;/span&gt;
+            &lt;span class=&#34;content&#34;&gt;*********&lt;/sspan&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</description>
     </item>
     
     <item>
-      <title>About Me</title>
+      <title>关于</title>
       <link>https://cughudson.github.io/personal/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
