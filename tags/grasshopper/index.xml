@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Grasshopper on Hudson</title>
+    <title>Grasshopper on Hudson Personal Pages</title>
     <link>https://cughudson.github.io/tags/grasshopper/</link>
-    <description>Hudson (Grasshopper)</description>
+    <description>Hudson Personal Pages (Grasshopper)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>

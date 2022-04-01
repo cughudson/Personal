@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>二次开发 on Hudson</title>
+    <title>二次开发 on Hudson Personal Pages</title>
     <link>https://cughudson.github.io/tags/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</link>
-    <description>Hudson (二次开发)</description>
+    <description>Hudson Personal Pages (二次开发)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>

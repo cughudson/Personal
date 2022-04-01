@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hudson</title>
+    <title>Hudson Personal Pages</title>
     <link>https://cughudson.github.io/</link>
-    <description>Hudson</description>
+    <description>Hudson Personal Pages</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
@@ -128,7 +128,7 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
     &lt;/div&gt;
 &lt;/section&gt;
 &lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;教育经历 / Education&lt;/h3&gt;
+    &lt;h3 class=&#34;title&#34;&gt;教育经历 / Education&lt;/h3&gt;
     &lt;div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col&#34;&gt;2010年9月~2014年7月&lt;/span&gt;
@@ -145,7 +145,7 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
     &lt;/div&gt;
 &lt;/section&gt;
 &lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;工作经历 / Work&lt;/h3&gt;
+    &lt;h3 class=&#34;title&#34;&gt;工作经历 / Work&lt;/h3&gt;
     &lt;div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col&#34;&gt;2014年7月 ~ 2016年5月&lt;/span&gt;
@@ -170,7 +170,36 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
     &lt;/div&gt;
 &lt;/section&gt;
 &lt;section class=&#34;card&#34;&gt;
-    &lt;h3&gt;项目经历 / Project&lt;/h3&gt;
+    &lt;h3 class=&#34;title&#34;&gt;我的技能 / Master SKill&lt;/h3&gt;
+    &lt;div&gt;
+        &lt;div classs=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;软件类&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;code class=&#34;tag&#34;&gt;Revit&lt;/code&gt;
+                &lt;code class=&#34;tag&#34;&gt;Grassshopper&lt;/code&gt;
+                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div classs=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;编程类&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;code class=&#34;tag&#34;&gt;C#&lt;/code&gt;
+                &lt;code class=&#34;tag&#34;&gt;JavaScript&lt;/code&gt;
+                &lt;code class=&#34;tag&#34;&gt;CSS&lt;/code&gt;
+                &lt;code class=&#34;tag&#34;&gt;HTML&lt;/code&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class=&#34;card&#34;&gt;
+    &lt;h3 class=&#34;title&#34;&gt;职称证书 / Master&lt;/h3&gt;
+    &lt;div&gt;
+        &lt;code class=&#34;tag&#34;&gt;建筑工程中级职称&lt;/code&gt;
+        &lt;code class=&#34;tag&#34;&gt;PMP项目管理资格认证&lt;/code&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+&lt;section class=&#34;card&#34;&gt;
+    &lt;h3 class=&#34;title&#34;&gt;项目经历 / Project&lt;/h3&gt;
     &lt;div class=&#34;item&#34;&gt;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
@@ -187,7 +216,12 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
         &lt;/div&gt;
         &lt;div class=&#34;row&#34;&gt;
             &lt;p&gt;
-           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+               &lt;ol&gt;
+                    &lt;li&gt;完成******&lt;/li&gt;
+                    &lt;li&gt;实现******&lt;/li&gt;
+                    &lt;li&gt;开发******&lt;/li&gt;
+                    &lt;li class=&#34;enhance&#34;&gt;其他******&lt;/li&gt;
+               &lt;/ol&gt; 
             &lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
@@ -203,19 +237,23 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
             &lt;span class=&#34;table-col&#34;&gt;
-                &lt;a href=&#34;#&#34;&gt;深圳国际会展中心BIM项目实施&lt;/a&gt;
+                &lt;a href=&#34;#&#34;&gt;中国建筑科技馆&lt;/a&gt;
             &lt;/span&gt;
         &lt;/div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2018年4月 ~ 2019年3月&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2019年4月 ~ 2019年5月&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col title&#34;&gt;主要业绩&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class=&#34;row&#34;&gt;
             &lt;p&gt;
-           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                &lt;ol&gt;
+                    &lt;li&gt;完成******&lt;/li&gt;
+                    &lt;li&gt;实现******&lt;/li&gt;
+                    &lt;li&gt;开发******&lt;/li&gt;
+                &lt;/ol&gt;
             &lt;/p&gt;
         &lt;/div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
@@ -225,7 +263,117 @@ AppContact=&amp;#34;{#EMAIL}&amp;#34;
                 &lt;code class=&#34;tag&#34;&gt;Revit&lt;/code&gt;,
                 &lt;code class=&#34;tag&#34;&gt;Grasshopper&lt;/code&gt;
             &lt;/span&gt;
-        &lt;div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;item&#34;&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;a href=&#34;#&#34;&gt;DWGLibrary For AutoCAD&lt;/a&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2021年11月 ~ 2022年1月&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;主要业绩&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;p&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;完成******&lt;/li&gt;
+                    &lt;li&gt;实现******&lt;/li&gt;
+                    &lt;li&gt;开发******&lt;/li&gt;
+                &lt;/ol&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;code class=&#34;tag&#34;&gt;AutoCAD&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;C#&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;InnoSetup&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;.NET FrameWork&lt;/code&gt;
+                &lt;code class=&#34;tag&#34;&gt;WPF&lt;/code&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;item&#34;&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;a href=&#34;#&#34;&gt;ModelChecker For Rhino&lt;/a&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2021年11月 ~ 2022年1月&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;主要业绩&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;p&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;完成******&lt;/li&gt;
+                    &lt;li&gt;实现******&lt;/li&gt;
+                    &lt;li&gt;开发******&lt;/li&gt;
+                &lt;/ol&gt;
+           &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;C#&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;RhinoCommon&lt;/code&gt;,
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title img&#34; title=&#34;github repo&#34;&gt;
+                &lt;img alt=&#34;github icon&#34; class=&#34;inline-svg&#34; src=&#34;./../../image/github.svg&#34;/&gt;
+            &lt;/span&gt;
+            &lt;a class=&#34;table-col&#34; target=&#34;_blank&#34; href=&#34;&#34;&gt;XXXXXXXXXXXXXXXXXXXXXXXX&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;item&#34;&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;a href=&#34;#&#34;&gt;Okavanko For Grasshopper&lt;/a&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;2021年11月 ~ 2022年1月&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;主要业绩&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;row&#34;&gt;
+            &lt;p&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;完成******&lt;/li&gt;
+                    &lt;li&gt;实现******&lt;/li&gt;
+                    &lt;li&gt;开发******&lt;/li&gt;
+                &lt;/ol&gt;
+           &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;
+                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;C#&lt;/code&gt;,
+                &lt;code class=&#34;tag&#34;&gt;Grasshopper&lt;/code&gt;,
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;table-row&#34;&gt;
+            &lt;span class=&#34;table-col title img&#34; title=&#34;github repo&#34;&gt;
+                &lt;img alt=&#34;github icon&#34; class=&#34;inline-svg&#34; src=&#34;./../../image/github.svg&#34;/&gt;
+            &lt;/span&gt;
+            &lt;a class=&#34;table-col&#34; target=&#34;_blank&#34; href=&#34;&#34;&gt;XXXXXXXXXXXXXXXXXXXXXXXX&lt;/a&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
 &lt;/section&gt;</description>
     </item>
