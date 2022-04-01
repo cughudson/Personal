@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>DWGLibrary For AutoCAD插件开发 - Hudson Personal Pages</title>
+<title>DWGLibrary For AutoCAD插件介绍 - Hudson&#39;s Personal Pages</title>
 
 <meta name="description" content="DWGLibrary For AutoCAD 软件界面 软件开发背景及意义 软件主要功能介绍 软件开发重难点介绍 软件打包 从软件的整个开发及分发过程来看，软件打包（package）不算是一个难点，之所以说难，是因为作为一个开发，很难接触到从软件开发">
 
@@ -52,7 +52,7 @@
     
 
     
-        <link rel="stylesheet" href="https://cughudson.github.io/css/style.min.41d12fc1059f19e8b3f058d266e37e671fac399a17dcd50b11f60c195220332a.css" integrity="sha256-QdEvwQWfGeiz8FjSZuN&#43;Zx&#43;sOZoX3NULEfYMGVIgMyo=">
+        <link rel="stylesheet" href="https://cughudson.github.io/css/style.min.a6d3ee45b002b806dc2fb71793c90f75b1fc3f8236b955f9349d3656dae5f4e9.css" integrity="sha256-ptPuRbACuAbcL7cXk8kPdbH8P4I2uVX5NJ02Vtrl9Ok=">
         
     
 
@@ -84,7 +84,7 @@
 
 
 
-<meta property="og:title" content="DWGLibrary For AutoCAD插件开发" />
+<meta property="og:title" content="DWGLibrary For AutoCAD插件介绍" />
 <meta property="og:description" content="DWGLibrary For AutoCAD 软件界面 软件开发背景及意义 软件主要功能介绍 软件开发重难点介绍 软件打包 从软件的整个开发及分发过程来看，软件打包（package）不算是一个难点，之所以说难，是因为作为一个开发，很难接触到从软件开发" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cughudson.github.io/posts/dwglibraryforautocad/" /><meta property="article:section" content="posts" />
@@ -93,7 +93,7 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="DWGLibrary For AutoCAD插件开发"/>
+<meta name="twitter:title" content="DWGLibrary For AutoCAD插件介绍"/>
 <meta name="twitter:description" content="DWGLibrary For AutoCAD 软件界面 软件开发背景及意义 软件主要功能介绍 软件开发重难点介绍 软件打包 从软件的整个开发及分发过程来看，软件打包（package）不算是一个难点，之所以说难，是因为作为一个开发，很难接触到从软件开发"/>
 
 
@@ -115,7 +115,7 @@
             
                 <div class="header-top">
     <h1 class="site-title">
-    <a href="/">Hudson Personal Pages</a>
+    <a href="/">Hudson&#39;s Personal Pages</a>
 </h1>
     <ul class="social-icons">
 
@@ -202,7 +202,7 @@
     <article class="post h-entry">
         <div class="post-header">
             <header>
-                <h1 class="p-name post-title">DWGLibrary For AutoCAD插件开发</h1>
+                <h1 class="p-name post-title">DWGLibrary For AutoCAD插件介绍</h1>
 
                 
             </header>
@@ -235,38 +235,37 @@
     </a>
 </span>
 </h3><p>从软件的整个开发及分发过程来看，软件打包（package）不算是一个难点，之所以说难，是因为作为一个开发，很难接触到从软件开发、调试再到分发的整个过程，在Visual Studio中，可通过创建一个&quot;Installer&quot;工程实现软件打包，但该方法操作步骤比较繁琐。DWGLibrary For AutoCAD使用的是<code>InnoSetup</code>作为其打包工作，InnoSetup打包语言为Pascal，具备注册表的读写以及</p>
-<pre tabindex="0"><code class="language-Pascal" data-lang="Pascal">#define COMPANYNAME &#34;中建深圳装饰有限公司&#34;
-#ifdef ISADMIN
-   #define APPNAME &#34;DWGLibrary For AutoCAD(Admin)&#34;
-#else
-   #define APPNAME &#34;DWGLibrary For AutoCAD(Normal)&#34;
-#endif
-#define EMAIL &#34;cughudson@126.com&#34;
-#define PHONE &#34;13312949505&#34;
-#define PROGRAMMER &#34;cughudson&#34;
-
-[Setup]
-AppName=DWGLibrary For AutoCAD
-AppVersion=1.0.0
-AppId= &#34;2934D795-825A-4624-99C2-AC3C7390CC2A&#34;
-AppMutex = DWGLibraryForAutoCAD
-AppPublisher=&#34;{#COMPANYNAME}&#34;
-AppContact=&#34;{#EMAIL}&#34;
-</code></pre><h4 id="主要问题解决方案" >主要问题解决方案
+<h3 id="dwg图块缩略图显示" >DWG图块缩略图显示
 <span>
-    <a href="#%e4%b8%bb%e8%a6%81%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88">
+    <a href="#dwg%e5%9b%be%e5%9d%97%e7%bc%a9%e7%95%a5%e5%9b%be%e6%98%be%e7%a4%ba">
         <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
     </a>
 </span>
-</h4><h4 id="1" >（1）
+</h3><p>关于DWG缩略图显示有两种方法</p>
+<ol>
+<li>直接通过AutoCAD内置的方法<code>CMLContentSearchPreviews</code>获取;</li>
+<li>依次生成每个图块的sld文件，读取图块的sld文件并将绘制到<code>Bitmap</code>上</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>   <span style="color:#66d9ef">using</span> Autodesk.AutoCAD.Windows.Data;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">using</span> System.Windows.Media.Imaging;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">using</span> System.IO;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">public</span> Bitmap GetBTRThumnail()
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      BitmapSource bs = CMLContentSearchPreviews.GetBlockTRThumbnail(btr) <span style="color:#66d9ef">as</span> BitmapSource;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> BitmapSrcToBitmap(bs);
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">private</span> Bitmap BitmapSrcToBitmap(BitmapSource bs)
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> ms = <span style="color:#66d9ef">new</span> MemoryStream();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> encoder = <span style="color:#66d9ef">new</span> System.Windows.Media.Imaging.BmpBitmapEncoder();
+</span></span><span style="display:flex;"><span>      encoder.Frames.Add(System.Windows.Media.Imaging.BitmapFrame.Create(src));     
+</span></span><span style="display:flex;"><span>      encoder.Save(ms);
+</span></span><span style="display:flex;"><span>      ms.Flush();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> System.Drawing.Image.FromStream(ms) <span style="color:#66d9ef">as</span> Bitmap;
+</span></span><span style="display:flex;"><span>   }
+</span></span></code></pre></div><h3 id="下一步需要解决的问题" >下一步需要解决的问题
 <span>
-    <a href="#1">
-        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
-    </a>
-</span>
-</h4><h3 id="dwg缩略显示" >DWG缩略显示
-<span>
-    <a href="#dwg%e7%bc%a9%e7%95%a5%e6%98%be%e7%a4%ba">
+    <a href="#%e4%b8%8b%e4%b8%80%e6%ad%a5%e9%9c%80%e8%a6%81%e8%a7%a3%e5%86%b3%e7%9a%84%e9%97%ae%e9%a2%98">
         <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
     </a>
 </span>
@@ -298,6 +297,9 @@ AppContact=&#34;{#EMAIL}&#34;
                         
                         <li><a href="https://cughudson.github.io/tags/c#/">#C#</a></li>
                     
+                        
+                        <li><a href="https://cughudson.github.io/tags/%E7%AE%80%E4%BB%8B/">#简介</a></li>
+                    
                 </ul>
         
     </div>
@@ -307,6 +309,13 @@ AppContact=&#34;{#EMAIL}&#34;
 
     
         
+        
+            <h3 class="read-next-title">继续阅读</h3>
+            <ul class="read-next-posts">
+                
+                <li><a href="/posts/modelcheckerforrhino/">ModelChecker For Rhino插件简介</a></li>
+                
+            </ul>
         
     
 
@@ -318,7 +327,7 @@ AppContact=&#34;{#EMAIL}&#34;
         </div>
         <div class="right pagination-item ">
             
-                <a href="/posts/%E4%B8%AD%E5%BB%BA%E5%85%89%E8%B0%B7%E4%B9%8B%E6%98%9Fbim%E5%AE%9E%E6%96%BD/">中建科技馆BIM实施</a>
+                <a href="/posts/modelcheckerforrhino/">ModelChecker For Rhino插件简介</a>
             
         </div>
     </div>

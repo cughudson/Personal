@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Hudson Personal Pages</title>
+    <title>Tags on Hudson&#39;s Personal Pages</title>
     <link>https://cughudson.github.io/tags/</link>
-    <description>Hudson Personal Pages (Tags)</description>
+    <description>Hudson&#39;s Personal Pages (Tags)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
