@@ -1,2 +1,1 @@
-# personal
-To Host My Personal WebSite
+An repo to host my Github page
