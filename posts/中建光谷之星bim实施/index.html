@@ -52,7 +52,7 @@
     
 
     
-        <link rel="stylesheet" href="https://cughudson.github.io/css/style.min.abbf1cb2611f5281562cf73a653cce403e8a7e12c8de24c0adfe70df249b1cfa.css" integrity="sha256-q78csmEfUoFWLPc6ZTzOQD6KfhLI3iTArf5w3ySbHPo=">
+        <link rel="stylesheet" href="https://cughudson.github.io/css/style.min.570633420c877eae8e0248d0570d6674806aa65eb4278e3e5ce85c6f8f19deeb.css" integrity="sha256-VwYzQgyHfq6OAkjQVw1mdIBqpl60J44&#43;XOhcb48Z3us=">
         
     
 
@@ -222,6 +222,7 @@
 <li><strong>施工单位</strong>：湖北中南钢结构有限公司</li>
 <li><strong>结构形式</strong>：钢结</li>
 <li><strong>建设地址</strong>：湖北省·武汉市·东湖新技术开发区·高新大道与光谷 6 路交汇处</li>
+<li><strong>实施时间</strong>:2019年3月 ~ 2019年5月</li>
 </ol>
 <hr />
 <p><img src="./../../image/wh.jpg" alt="中建科技馆" /></p>
@@ -233,52 +234,54 @@
         <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
     </a>
 </span>
-</h2><p>中建光谷之星（E 地块）中建科技馆项目（下面称“中建科技馆项目”）主要由裙房和位
+</h2><p>中建光谷之星（E 地块）中建科技馆项目（下面称“中建科技馆项目”）主要由裙房及位
 于场地中间的“种子”，其中裙房为带“侧弯”的直立锁边屋面及石材山墙构成。“种子”部
 分则由双曲异形不锈钢板面和位于种子中心部分的球面双曲玻璃构成。根据现场施工部署及工
 作安排，不锈钢种子部分为整个项目的进度控制要点。同时，不锈钢种子部分除南北两侧包含
 部分不规则双曲异形玻璃外，其余全部有异形不锈钢板构成。生产加工难度大，是整个项目的
 下料及施工难点，基于此，本总结主要介绍 BIM 在种子部分双曲异形不锈钢板的施工下料方法。</p>
+<p><img src="./../../image/wh2.jpg" alt="中建科技馆" /></p>
+<p class="caption">为保证施工效果，业主花费数百万制作的1：6"模型"</p>
 <h3 id="批量stp文件导出" >批量*stp文件导出
 <span>
     <a href="#%e6%89%b9%e9%87%8fstp%e6%96%87%e4%bb%b6%e5%af%bc%e5%87%ba">
         <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
     </a>
 </span>
-</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> RunScript(<span style="color:#66d9ef">string</span> ParentLayerName, <span style="color:#66d9ef">string</span> Dir, <span style="color:#66d9ef">bool</span> Toggle, <span style="color:#66d9ef">ref</span> <span style="color:#66d9ef">object</span> A)
+</h3><p>在项目实施过程中，分包厂家要求将每块双曲异形面板以<code>LOD400</code>的精度导出成符合工业生产需求的<code>*.stp</code>格式的三维模型，
+而整个项目共有三千来块完全不同的不锈钢异形板块，首先想到的是增加BIM实施人员，让BIM实施人员手动依次导出板块，但此种方法不但难以保证导出的准确率
+假如后期模型出现变更，工作人员将不得不重新依次导出板块，难以满足项目的施工工期不说项目BIM实施成本将随着模型变更次数的增多而呈现指数级别的增加，这完全背离了幕墙项目使用BIM的初衷。在这种背景下
+，项目团队通过深入分析、梳理此项目的BIM实施流程，使用C#并结合<code>Grassshopper</code>研发出了能将模型自动导出成<code>*stp</code>格式文件的程序模块，并将其整合在了<code>Grashopper</code>中。使用程序替代人工操作，给模型的导出工作提供了极大的便利。间接为项目BIM实施节约了成本。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> RunScript(<span style="color:#8be9fd">string</span> ParentLayerName, <span style="color:#8be9fd">string</span> Dir, <span style="color:#8be9fd">bool</span> Toggle, <span style="color:#ff79c6">ref</span> <span style="color:#8be9fd">object</span> A)
 </span></span><span style="display:flex;"><span>  {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//Get target layer</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(!Toggle)<span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//Get target layer</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(!Toggle)<span style="color:#ff79c6">return</span>;
 </span></span><span style="display:flex;"><span>    Layer ParentLayer = Rhino.RhinoDoc.ActiveDoc.Layers.FindName(ParentLayerName);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(ParentLayer == <span style="color:#66d9ef">null</span>)<span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(ParentLayer == <span style="color:#ff79c6">null</span>)<span style="color:#ff79c6">return</span>;
 </span></span><span style="display:flex;"><span>    Layer[] a_ChildrenLayer = ParentLayer.GetChildren();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(a_ChildrenLayer == <span style="color:#66d9ef">null</span>){
-</span></span><span style="display:flex;"><span>      A = ParentLayer.Name + <span style="color:#e6db74">&#34; :不包含子图层&#34;</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(a_ChildrenLayer == <span style="color:#ff79c6">null</span>){
+</span></span><span style="display:flex;"><span>      A = ParentLayer.Name + <span style="color:#f1fa8c">&#34; :不包含子图层&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span>;
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//Deselect All Object</span>
-</span></span><span style="display:flex;"><span>    Rhino.DocObjects.RhinoObject[] Objs_Temp = Rhino.RhinoDoc.ActiveDoc.Objects.GetSelectedObjects(<span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">false</span>).ToArray();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span>(<span style="color:#66d9ef">var</span> obj <span style="color:#66d9ef">in</span> Objs_Temp){
-</span></span><span style="display:flex;"><span>      obj.Select(<span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//Deselect All Object</span>
+</span></span><span style="display:flex;"><span>    Rhino.DocObjects.RhinoObject[] Objs_Temp = Rhino.RhinoDoc.ActiveDoc.Objects.GetSelectedObjects(<span style="color:#ff79c6">false</span>, <span style="color:#ff79c6">false</span>).ToArray();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">foreach</span>(<span style="color:#8be9fd">var</span> obj <span style="color:#ff79c6">in</span> Objs_Temp){
+</span></span><span style="display:flex;"><span>      obj.Select(<span style="color:#ff79c6">false</span>);
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//select target Object</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> Index = <span style="color:#ae81ff">0</span>; Index &lt; a_ChildrenLayer.Length;Index++){
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//select target Object</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> Index = <span style="color:#bd93f9">0</span>; Index &lt; a_ChildrenLayer.Length;Index++){
 </span></span><span style="display:flex;"><span>      Rhino.DocObjects.RhinoObject[] Objs = Rhino.RhinoDoc.ActiveDoc.Objects.FindByLayer(a_ChildrenLayer[Index]);
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j = <span style="color:#ae81ff">0</span>; j &lt; Objs.Length;j++){
-</span></span><span style="display:flex;"><span>        Objs[j].Select(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">for</span>(<span style="color:#8be9fd">int</span> j = <span style="color:#bd93f9">0</span>; j &lt; Objs.Length;j++){
+</span></span><span style="display:flex;"><span>        Objs[j].Select(<span style="color:#ff79c6">true</span>);
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//export selected object to stp object</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">string</span> str = <span style="color:#e6db74">@&#34;-Export &#34;</span> + Dir + ParentLayerName + <span style="color:#e6db74">&#34;.stp&#34;</span> + <span style="color:#e6db74">&#34; _enter&#34;</span>;
-</span></span><span style="display:flex;"><span>    RhinoApp.RunScript(str, <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//export selected object to stp object</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> str = <span style="color:#f1fa8c">@&#34;-Export &#34;</span> + Dir + ParentLayerName + <span style="color:#f1fa8c">&#34;.stp&#34;</span> + <span style="color:#f1fa8c">&#34; _enter&#34;</span>;
+</span></span><span style="display:flex;"><span>    RhinoApp.RunScript(str, <span style="color:#f1fa8c">&#34; &#34;</span>, <span style="color:#ff79c6">false</span>);
 </span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><h2 id="其他" >其他
-<span>
-    <a href="#%e5%85%b6%e4%bb%96">
-        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
-    </a>
-</span>
-</h2>
+</span></span></code></pre></div><p class="caption">将当前模型自动导出<code>*.stp</code>格式功能模块的核心代码</p>
+## 其他
+
         </div>
         
 
@@ -321,7 +324,7 @@
                 
                 <li><a href="/posts/%E6%B7%B1%E5%9C%B3%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83bim%E5%AE%9E%E6%96%BD/">深圳国际会展中心BIM实施</a></li>
                 
-                <li><a href="/posts/modelcheckerforrhino/">ModelChecker For Rhino插件简介</a></li>
+                <li><a href="/posts/modelcheckerforrhino/">ModelChecker For Rhino插件介绍</a></li>
                 
             </ul>
         
@@ -332,7 +335,7 @@
     <div class="pagination post-pagination">
         <div class="left pagination-item ">
             
-                <a href="/posts/modelcheckerforrhino/">ModelChecker For Rhino插件简介</a>
+                <a href="/posts/modelcheckerforrhino/">ModelChecker For Rhino插件介绍</a>
             
         </div>
         <div class="right pagination-item ">

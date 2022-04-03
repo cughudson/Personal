@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
-    <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Apr 2022 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://cughudson.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ConfuserEx使用方法介绍</title>
+      <link>https://cughudson.github.io/posts/confuserex%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 03 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cughudson.github.io/posts/confuserex%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;./../../image/confuserEx.jpg&#34; alt=&#34;ConfuserEx&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;ConfuserEx 软件界面&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>DWGLibrary For AutoCAD插件介绍</title>
@@ -44,7 +54,12 @@
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/span&gt;
-&lt;/h3&gt;&lt;p&gt;从软件的整个开发及分发过程来看，软件打包（package）不算是一个难点，之所以说难，是因为作为一个开发，很难接触到从软件开发、调试再到分发的整个过程，在Visual Studio中，可通过创建一个&amp;quot;Installer&amp;quot;工程实现软件打包，但该方法操作步骤比较繁琐。DWGLibrary For AutoCAD使用的是&lt;code&gt;InnoSetup&lt;/code&gt;作为其打包工作，InnoSetup打包语言为Pascal，具备注册表的读写以及&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;所谓软件打包，就是将已开发好的程序封装成可供用户直接使用的软件安装包（&lt;code&gt;msi&lt;/code&gt;或&lt;code&gt;exe&lt;/code&gt;）的过程。相对于软件开发而言，软件打包（package）并不算是一个难点，之所以说难，是因作为一个开发者，难以全过程的接触从软件开发、调试再到软件打包分发的整个过程。在Windows平台上，生成软件安装包的方式有多种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用Visual Studio创建&amp;quot;Installer&amp;quot;工程实现软件打包，但该方法步骤相对繁琐且不够轻便，优点是可定制性强;&lt;/li&gt;
+&lt;li&gt;使用第三方如&lt;code&gt;NISS&lt;/code&gt;（免费）、&lt;code&gt;innoSetup&lt;/code&gt;（免费）、&lt;code&gt;installshield&lt;/code&gt;（收费）等打包软件进行打包生成软件安装包，此方法方便快捷。对于前两者还需要打包者有一定的编程经验;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在本项目中，使用的是&lt;code&gt;innoSetup&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;dwg图块缩略图显示&#34; &gt;DWG图块缩略图显示
 &lt;span&gt;
     &lt;a href=&#34;#dwg%e5%9b%be%e5%9d%97%e7%bc%a9%e7%95%a5%e5%9b%be%e6%98%be%e7%a4%ba&#34;&gt;
@@ -56,24 +71,26 @@
 &lt;li&gt;直接通过AutoCAD内置的方法&lt;code&gt;CMLContentSearchPreviews&lt;/code&gt;获取;&lt;/li&gt;
 &lt;li&gt;依次生成每个图块的sld文件，读取图块的sld文件并将绘制到&lt;code&gt;Bitmap&lt;/code&gt;上&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; Autodesk.AutoCAD.Windows.Data;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.Windows.Media.Imaging;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; System.IO;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Bitmap GetBTRThumnail()
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#6272a4&#34;&gt;/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;      using Autodesk.AutoCAD.Windows.Data;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;      using System.Windows.Media.Imaging;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;   */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; Bitmap GetBTRThumnail()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      BitmapSource bs = CMLContentSearchPreviews.GetBlockTRThumbnail(btr) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; BitmapSource;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; BitmapSrcToBitmap(bs);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      BitmapSource bs = CMLContentSearchPreviews.GetBlockTRThumbnail(btr) &lt;span style=&#34;color:#ff79c6&#34;&gt;as&lt;/span&gt; BitmapSource;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; BitmapSrcToBitmap(bs);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; Bitmap BitmapSrcToBitmap(BitmapSource bs)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; Bitmap BitmapSrcToBitmap(BitmapSource bs)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; ms = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; MemoryStream();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; encoder = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; System.Windows.Media.Imaging.BmpBitmapEncoder();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#8be9fd&#34;&gt;var&lt;/span&gt; ms = &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; MemoryStream();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#8be9fd&#34;&gt;var&lt;/span&gt; encoder = &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; System.Windows.Media.Imaging.BmpBitmapEncoder();
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      encoder.Frames.Add(System.Windows.Media.Imaging.BitmapFrame.Create(src));     
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      encoder.Save(ms);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ms.Flush();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; System.Drawing.Image.FromStream(ms) &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; Bitmap;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; System.Drawing.Image.FromStream(ms) &lt;span style=&#34;color:#ff79c6&#34;&gt;as&lt;/span&gt; Bitmap;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;下一步需要解决的问题&#34; &gt;下一步需要解决的问题
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class=&#34;caption&#34;&gt;使用AutoCAD内置方法读取BlockTableRecord缩略图信息&lt;/p&gt;
+&lt;h3 id=&#34;下一步需要解决的问题&#34; &gt;下一步需要解决的问题
 &lt;span&gt;
     &lt;a href=&#34;#%e4%b8%8b%e4%b8%80%e6%ad%a5%e9%9c%80%e8%a6%81%e8%a7%a3%e5%86%b3%e7%9a%84%e9%97%ae%e9%a2%98&#34;&gt;
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
@@ -83,7 +100,7 @@
     </item>
     
     <item>
-      <title>ModelChecker For Rhino插件简介</title>
+      <title>ModelChecker For Rhino插件介绍</title>
       <link>https://cughudson.github.io/posts/modelcheckerforrhino/</link>
       <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
       
@@ -137,6 +154,7 @@
 &lt;li&gt;&lt;strong&gt;施工单位&lt;/strong&gt;：湖北中南钢结构有限公司&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;结构形式&lt;/strong&gt;：钢结&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;建设地址&lt;/strong&gt;：湖北省·武汉市·东湖新技术开发区·高新大道与光谷 6 路交汇处&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实施时间&lt;/strong&gt;:2019年3月 ~ 2019年5月&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img src=&#34;./../../image/wh.jpg&#34; alt=&#34;中建科技馆&#34; /&gt;&lt;/p&gt;
@@ -148,52 +166,54 @@
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/span&gt;
-&lt;/h2&gt;&lt;p&gt;中建光谷之星（E 地块）中建科技馆项目（下面称“中建科技馆项目”）主要由裙房和位
+&lt;/h2&gt;&lt;p&gt;中建光谷之星（E 地块）中建科技馆项目（下面称“中建科技馆项目”）主要由裙房及位
 于场地中间的“种子”，其中裙房为带“侧弯”的直立锁边屋面及石材山墙构成。“种子”部
 分则由双曲异形不锈钢板面和位于种子中心部分的球面双曲玻璃构成。根据现场施工部署及工
 作安排，不锈钢种子部分为整个项目的进度控制要点。同时，不锈钢种子部分除南北两侧包含
 部分不规则双曲异形玻璃外，其余全部有异形不锈钢板构成。生产加工难度大，是整个项目的
 下料及施工难点，基于此，本总结主要介绍 BIM 在种子部分双曲异形不锈钢板的施工下料方法。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./../../image/wh2.jpg&#34; alt=&#34;中建科技馆&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;为保证施工效果，业主花费数百万制作的1：6&#34;模型&#34;&lt;/p&gt;
 &lt;h3 id=&#34;批量stp文件导出&#34; &gt;批量*stp文件导出
 &lt;span&gt;
     &lt;a href=&#34;#%e6%89%b9%e9%87%8fstp%e6%96%87%e4%bb%b6%e5%af%bc%e5%87%ba&#34;&gt;
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/span&gt;
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; RunScript(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; ParentLayerName, &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; Dir, &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; Toggle, &lt;span style=&#34;color:#66d9ef&#34;&gt;ref&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; A)
+&lt;/h3&gt;&lt;p&gt;在项目实施过程中，分包厂家要求将每块双曲异形面板以&lt;code&gt;LOD400&lt;/code&gt;的精度导出成符合工业生产需求的&lt;code&gt;*.stp&lt;/code&gt;格式的三维模型，
+而整个项目共有三千来块完全不同的不锈钢异形板块，首先想到的是增加BIM实施人员，让BIM实施人员手动依次导出板块，但此种方法不但难以保证导出的准确率
+假如后期模型出现变更，工作人员将不得不重新依次导出板块，难以满足项目的施工工期不说项目BIM实施成本将随着模型变更次数的增多而呈现指数级别的增加，这完全背离了幕墙项目使用BIM的初衷。在这种背景下
+，项目团队通过深入分析、梳理此项目的BIM实施流程，使用C#并结合&lt;code&gt;Grassshopper&lt;/code&gt;研发出了能将模型自动导出成&lt;code&gt;*stp&lt;/code&gt;格式文件的程序模块，并将其整合在了&lt;code&gt;Grashopper&lt;/code&gt;中。使用程序替代人工操作，给模型的导出工作提供了极大的便利。间接为项目BIM实施节约了成本。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;void&lt;/span&gt; RunScript(&lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; ParentLayerName, &lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; Dir, &lt;span style=&#34;color:#8be9fd&#34;&gt;bool&lt;/span&gt; Toggle, &lt;span style=&#34;color:#ff79c6&#34;&gt;ref&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;object&lt;/span&gt; A)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//Get target layer&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(!Toggle)&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//Get target layer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt;(!Toggle)&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Layer ParentLayer = Rhino.RhinoDoc.ActiveDoc.Layers.FindName(ParentLayerName);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(ParentLayer == &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;)&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt;(ParentLayer == &lt;span style=&#34;color:#ff79c6&#34;&gt;null&lt;/span&gt;)&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Layer[] a_ChildrenLayer = ParentLayer.GetChildren();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(a_ChildrenLayer == &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      A = ParentLayer.Name + &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; :不包含子图层&amp;#34;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt;(a_ChildrenLayer == &lt;span style=&#34;color:#ff79c6&#34;&gt;null&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      A = ParentLayer.Name + &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34; :不包含子图层&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//Deselect All Object&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Rhino.DocObjects.RhinoObject[] Objs_Temp = Rhino.RhinoDoc.ActiveDoc.Objects.GetSelectedObjects(&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;).ToArray();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;foreach&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; obj &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; Objs_Temp){
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      obj.Select(&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//Deselect All Object&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Rhino.DocObjects.RhinoObject[] Objs_Temp = Rhino.RhinoDoc.ActiveDoc.Objects.GetSelectedObjects(&lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;, &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;).ToArray();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;foreach&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;var&lt;/span&gt; obj &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; Objs_Temp){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      obj.Select(&lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//select target Object&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Index = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; Index &amp;lt; a_ChildrenLayer.Length;Index++){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//select target Object&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; Index = &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;; Index &amp;lt; a_ChildrenLayer.Length;Index++){
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      Rhino.DocObjects.RhinoObject[] Objs = Rhino.RhinoDoc.ActiveDoc.Objects.FindByLayer(a_ChildrenLayer[Index]);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; j = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; j &amp;lt; Objs.Length;j++){
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Objs[j].Select(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; j = &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;; j &amp;lt; Objs.Length;j++){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Objs[j].Select(&lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//export selected object to stp object&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; str = &lt;span style=&#34;color:#e6db74&#34;&gt;@&amp;#34;-Export &amp;#34;&lt;/span&gt; + Dir + ParentLayerName + &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.stp&amp;#34;&lt;/span&gt; + &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; _enter&amp;#34;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    RhinoApp.RunScript(str, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//export selected object to stp object&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; str = &lt;span style=&#34;color:#f1fa8c&#34;&gt;@&amp;#34;-Export &amp;#34;&lt;/span&gt; + Dir + ParentLayerName + &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;.stp&amp;#34;&lt;/span&gt; + &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34; _enter&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    RhinoApp.RunScript(str, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;其他&#34; &gt;其他
-&lt;span&gt;
-    &lt;a href=&#34;#%e5%85%b6%e4%bb%96&#34;&gt;
-        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/span&gt;
-&lt;/h2&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class=&#34;caption&#34;&gt;将当前模型自动导出&lt;code&gt;*.stp&lt;/code&gt;格式功能模块的核心代码&lt;/p&gt;
+## 其他
+</description>
     </item>
     
     <item>
@@ -258,7 +278,7 @@
         &lt;/div&gt;
         &lt;div class=&#34;table-row&#34;&gt;
             &lt;span class=&#34;table-col&#34;&gt;2012年9月~2014年7月&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;本科(七校联合办学)&lt;/span&gt;
+            &lt;span class=&#34;table-col&#34;&gt;&lt;span class=&#34;hightlight&#34; title=&#34;武汉地区七所部属高校联合举办的可跨校选修专业的一种合作办学模式&#34;&gt;本科(七校联合办学)&lt;/span&gt;&lt;/span&gt;
             &lt;span class=&#34;table-col&#34;&gt;华中科技大学&lt;/span&gt;
             &lt;span class=&#34;table-col&#34;&gt;建筑学&lt;/span&gt;
         &lt;/div&gt;
@@ -267,25 +287,65 @@
 &lt;section class=&#34;card&#34;&gt;
     &lt;h3 class=&#34;title&#34;&gt;工作经历 / Career&lt;/h3&gt;
     &lt;div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2014年7月 ~ 2016年5月&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;中建一局华南区域公司&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;技术员/测量工程师&lt;/span&gt;
+        &lt;div class=&#34;item&#34;&gt;
+            &lt;div class=&#34;table-row bold&#34;&gt;
+                &lt;span class=&#34;table-col&#34;&gt;2014年7月 ~ 2016年5月&lt;/span&gt;
+                &lt;span class=&#34;table-col&#34;&gt;中建一局华南区域公司&lt;/span&gt;
+                &lt;span class=&#34;table-col&#34;&gt;技术员/测量工程师&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;row noparagraph&#34;&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;完成深湾汇云中心一期项目施工测量方案的编写，并顺利实施；&lt;/li&gt;
+                    &lt;li&gt;根据项目施工进度计划，结合所创建的BIM模型，使用Naviswork软件对深圳地铁9105标段项目维修综合楼进行了施工模拟；&lt;/li&gt;
+                    &lt;li&gt;联合第三方监测单位，应用三维激光扫描技术对深湾汇云中心项目基坑冠梁、支护桩以及内支撑进行了形变、沉降及位移监测；&lt;/li&gt;
+                &lt;/ol&gt; 
+            &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2016年9月 ~ 2020年4月&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;中建深圳装饰有限公司 设计研究院&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;参数化设计师&lt;/span&gt;
+        &lt;div class=&#34;item&#34;&gt;
+            &lt;div class=&#34;table-row bold&#34;&gt;
+                &lt;span class=&#34;table-col&#34;&gt;2016年9月 ~ 2020年4月&lt;/span&gt;
+                &lt;span class=&#34;table-col&#34;&gt;中建深圳装饰有限公司 设计研究院&lt;/span&gt;
+                &lt;span class=&#34;table-col&#34;&gt;参数化设计师&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;row noparagraph&#34;&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;根据业务部门所提需求，主导设计并研发了一款基于B/S架构的幕墙模图图库管理软件，并申请了设计研究院第一个软件著作权证书；&lt;/li&gt;
+                    &lt;li class=&#34;enhance&#34;&gt;根据BIM设计研究中心及自身BIM项目实施经验，总结研发了一款名为Okavanko的Rhino Grasshopper插件，该插件从整体上提升了公司BIM设计师的项目实施效；&lt;/li&gt;
+                    &lt;li&gt;负责深圳国际会展中心（六标段）的BIM实施工作，该项目BIM实施荣获中国建筑装饰协会BIM应用一等奖；&lt;/li&gt;
+                    &lt;li&gt;设计、研发Web UI程序界面库;&lt;/li&gt;
+                &lt;/ol&gt; 
+            &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2020年5月 ~ 2021年3月&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;中建一局华南区域公司 信息部&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;信息化主管&lt;/span&gt;
+        &lt;div class=&#34;item&#34;&gt;
+            &lt;div class=&#34;table-row bold&#34;&gt;
+                &lt;span class=&#34;table-col&#34;&gt;2020年5月 ~ 2021年3月&lt;/span&gt;
+                &lt;span class=&#34;table-col&#34;&gt;中建一局华南区域公司 信息部&lt;/span&gt;
+                &lt;span class=&#34;table-col&#34;&gt;信息化主管&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;row noparagraph&#34;&gt;
+                &lt;ol&gt;
+                    &lt;li&gt;协同公司BIM部门推广公司智慧建造系统；&lt;/li&gt;
+                    &lt;li&gt;牵头对公司各业务系统数据库进行优化，提升用户体验;&lt;/li&gt;
+                    &lt;li&gt;建设信息部部门体系；&lt;/li&gt;
+                    &lt;li&gt;负责根据各业务部门提出的各类信息化需求提供技术支持；&lt;/li&gt;
+                    &lt;li&gt;负责牵头维护股份、集团统建以及公司自建的各类信息化系统；&lt;/li&gt;
+                    &lt;li&gt;负责设计并研发了公司&lt;a target=&#34;_blank&#34; href=&#34;http://hn.cscec1b.net&#34;&gt;官方网站&lt;/a&gt;&lt;/li&gt;
+                &lt;/ol&gt; 
+            &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2021年5月 ~ 2022年3月&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;中建不二幕墙装饰有限公司 设计研究院&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;BIM工程师&lt;/span&gt;
+        &lt;div class=&#34;item&#34;&gt;
+            &lt;div class=&#34;table-row bold&#34;&gt;
+                &lt;span class=&#34;table-col&#34;&gt;2021年5月 ~ 2022年3月&lt;/span&gt;
+                &lt;span class=&#34;table-col&#34;&gt;中建不二幕墙装饰有限公司 设计研究院&lt;/span&gt;
+                &lt;span class=&#34;table-col&#34;&gt;BIM工程师&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;row noparagraph&#34;&gt;
+                &lt;ol&gt;
+                    &lt;li class=&#34;enhance&#34;&gt;设计并研发了DWGLibrary For AutoCAD模图图库管理程序，方便公司对型材，胶条等CAD文件进行管理，提高工作效率，节约成本；&lt;/li&gt;
+                    &lt;li&gt;ModelChecker For Rhino软件开发；&lt;/li&gt;
+                    &lt;li&gt;武汉中粮大悦城BIM实施；&lt;/li&gt;
+                &lt;/ol&gt; 
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/section&gt;
@@ -317,189 +377,6 @@
         &lt;code class=&#34;tag&#34;&gt;建筑工程中级职称&lt;/code&gt;
         &lt;code class=&#34;tag&#34;&gt;PMP项目管理资格认证&lt;/code&gt;
     &lt;/div&gt;
-&lt;/section&gt;
-&lt;section class=&#34;card&#34;&gt;
-    &lt;h3 class=&#34;title&#34;&gt;项目经历 / Project&lt;/h3&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;a href=&#34;#&#34;&gt;深圳国际会展中心六标段BIM项目实施&lt;/a&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2018年4月 ~ 2019年3月&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;工作内容/业绩&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;p&gt;
-               &lt;ol&gt;
-                    &lt;li&gt;完成&lt;/li&gt;
-                    &lt;li&gt;实现&lt;/li&gt;
-                    &lt;li&gt;总结并开发&#34;点聚类&#34;等算法，更新&lt;/li&gt;
-                    &lt;li class=&#34;enhance&#34;&gt;其他&lt;/li&gt;
-               &lt;/ol&gt; 
-            &lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;Revit&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;Grasshopper&lt;/code&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;a href=&#34;#&#34;&gt;中国建筑科技馆&lt;/a&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2019年4月 ~ 2019年5月&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;工作内容/业绩&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;p&gt;
-                &lt;ol&gt;
-                    &lt;li&gt;完成&lt;/li&gt;
-                    &lt;li&gt;实现&lt;/li&gt;
-                    &lt;li&gt;开发&lt;/li&gt;
-                &lt;/ol&gt;
-            &lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;Revit&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;Grasshopper&lt;/code&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;a href=&#34;#&#34;&gt;DWGLibrary For AutoCAD&lt;/a&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2021年11月 ~ 2022年1月&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;工作内容/业绩&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;p&gt;
-                &lt;ol&gt;
-                    &lt;li&gt;完成&lt;/li&gt;
-                    &lt;li&gt;实现&lt;/li&gt;
-                    &lt;li&gt;开发&lt;/li&gt;
-                &lt;/ol&gt;
-            &lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;code class=&#34;tag&#34;&gt;AutoCAD&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;C#&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;InnoSetup&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;.NET FrameWork&lt;/code&gt;
-                &lt;code class=&#34;tag&#34;&gt;WPF&lt;/code&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;a href=&#34;#&#34;&gt;ModelChecker For Rhino&lt;/a&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2021年11月 ~ 2022年1月&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;工作内容/业绩&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;p&gt;
-                &lt;ol&gt;
-                    &lt;li&gt;完成******&lt;/li&gt;
-                    &lt;li&gt;实现******&lt;/li&gt;
-                    &lt;li&gt;开发******&lt;/li&gt;
-                &lt;/ol&gt;
-           &lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;C#&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;RhinoCommon&lt;/code&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title img&#34; title=&#34;github repo&#34;&gt;
-                &lt;span class=&#34;inline-svg medium&#34;&gt;
-                &lt;!-- &lt;img alt=&#34;github icon&#34; class=&#34;inline-svg&#34; src=&#34;./../../image/github.svg&#34;/&gt; --&gt;
-                    &lt;svg xmlns=&#34;http://www.w4.org/2000/svg&#34; viewBox=&#34;0 0 496 512&#34;&gt;&lt;path fill=&#34;currentColor&#34; d=&#34;M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
-                &lt;/span&gt;
-            &lt;/span&gt;
-            &lt;a class=&#34;table-col&#34; target=&#34;_blank&#34; href=&#34;&#34;&gt;XXXXXXXXXXXXXXXXXXXXXXXX&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;项目名称&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;a href=&#34;#&#34;&gt;Okavanko For Grasshopper&lt;/a&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;时&lt;span style=&#34;text-indent:2em;display:inline-block&#34;&gt;间&lt;/span&gt;&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;2021年11月 ~ 2022年1月&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;工作内容/业绩&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;row&#34;&gt;
-            &lt;p&gt;
-                &lt;ol&gt;
-                    &lt;li&gt;完成******&lt;/li&gt;
-                    &lt;li&gt;实现******&lt;/li&gt;
-                    &lt;li&gt;开发******&lt;/li&gt;
-                &lt;/ol&gt;
-           &lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title&#34;&gt;实施工具：&lt;/span&gt;
-            &lt;span class=&#34;table-col&#34;&gt;
-                &lt;code class=&#34;tag&#34;&gt;Rhino&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;C#&lt;/code&gt;,
-                &lt;code class=&#34;tag&#34;&gt;Grasshopper&lt;/code&gt;
-            &lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;table-row&#34;&gt;
-            &lt;span class=&#34;table-col title img&#34; title=&#34;github repo&#34;&gt;
-                &lt;span class=&#34;inline-svg medium&#34;&gt;
-                    &lt;svg xmlns=&#34;http://www.w4.org/2000/svg&#34; viewBox=&#34;0 0 496 512&#34;&gt;&lt;path fill=&#34;currentColor&#34; d=&#34;M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
-                &lt;/span&gt;
-            &lt;/span&gt;
-            &lt;a class=&#34;table-col&#34; target=&#34;_blank&#34; href=&#34;&#34;&gt;&lt;code class=&#34;tag&#34;&gt;Okvanko For Grasshopper&lt;/code&gt; Github托管地址&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
 &lt;/section&gt;</description>
     </item>
     
@@ -509,38 +386,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cughudson.github.io/about/</guid>
-      <description>&lt;p&gt;我的名字***，于2014年毕业于中国地质大学（武汉）,本科专业为地理信息系统，同时辅修有华中科技大学的建筑学专业，毕业至今一直在中建体系内从事技术工作，目前在中国建筑（CSCEC）旗下的中建五局做幕墙BIM实施。从业以来参与过&lt;a href=&#34;http://localhost:1313/personal/posts/%E6%B7%B1%E5%9C%B3%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83bim%E5%AE%9E%E6%96%BD/&#34;&gt;深圳国际会展中心&lt;/a&gt;，&lt;a href=&#34;http://localhost:1313/personal/posts/%E4%B8%AD%E5%BB%BA%E5%85%89%E8%B0%B7%E4%B9%8B%E6%98%9Fbim%E5%AE%9E%E6%96%BD/&#34;&gt;中建科技馆&lt;/a&gt;等项目的BIM实施工作，其中前者为世界最大单体会展展馆，位于广东深圳，后者为世界最大不锈钢单体建筑，位于武汉光谷.&lt;/p&gt;
-&lt;p&gt;在做好本职工作的同时，在业余本人还喜欢编写程序，本网站即是本人使用&lt;code&gt;Hugo&lt;/code&gt;静态网页生成工具搭建的，目前托关于&lt;a href=&#34;http://github.com/cughudson/personal&#34;&gt;GitHub&lt;/a&gt;,通过自学本人已能够使用&lt;code&gt;JavaScript&lt;/code&gt;、&lt;code&gt;C#&lt;/code&gt;等编程语言编写一些简单的应用
-以下为我业余开发的几个软件的简单介绍&lt;/p&gt;
-&lt;h2 id=&#34;dwglibrary-for-autocad&#34; &gt;DWGLibrary For AutoCAD
-&lt;span&gt;
-    &lt;a href=&#34;#dwglibrary-for-autocad&#34;&gt;
-        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/span&gt;
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;该软件提供对DWG图块进行检索、管理，信息查询以及插入等功能。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;modelchecker-for-rhino&#34; &gt;ModelChecker For Rhino
-&lt;span&gt;
-    &lt;a href=&#34;#modelchecker-for-rhino&#34;&gt;
-        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/span&gt;
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;内容写在这里&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;okavanko-for-grasshopper&#34; &gt;Okavanko For Grasshopper
-&lt;span&gt;
-    &lt;a href=&#34;#okavanko-for-grasshopper&#34;&gt;
-        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/span&gt;
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;内容写在这里
-VR Player(JavaScript) &amp;amp;&amp;amp; VR Player(ActionScript)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;更多项目请移步到本人&lt;a href=&#34;https://github.com/cughudson&#34;&gt;Github&lt;/a&gt;站点，谢谢&lt;/p&gt;
+      <description>&lt;p&gt;我的名字***，于2014年毕业于中国地质大学（武汉）,本科专业为地理信息系统，同时辅修有华中科技大学的建筑学专业，毕业至今一直在中建体系内从事技术工作，目前在中国建筑（CSCEC）旗下的中建五局做幕墙BIM实施。从业以来参与&lt;code&gt;深圳国际会展中心&lt;/code&gt;，&lt;code&gt;中建科技馆&lt;/code&gt;等项目的BIM实施工作，其中前者为世界最大单体会展展馆，位于广东深圳，后者为世界最大不锈钢单体建筑，位于武汉光谷.&lt;/p&gt;
+&lt;p&gt;在做好本职工作的同时，在业余本人还喜欢编写程序，本网站即是本人使用&lt;code&gt;Hugo&lt;/code&gt;静态网页生成工具搭建的，目前托关于&lt;a href=&#34;http://github.com/cughudson/&#34;&gt;GitHub&lt;/a&gt;,通过自学本人已能够使用&lt;code&gt;JavaScript&lt;/code&gt;、&lt;code&gt;C#&lt;/code&gt;等编程语言编写一些简单的应用&lt;/p&gt;
 </description>
     </item>
     

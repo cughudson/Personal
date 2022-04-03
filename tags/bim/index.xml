@@ -32,6 +32,7 @@
 &lt;li&gt;&lt;strong&gt;施工单位&lt;/strong&gt;：湖北中南钢结构有限公司&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;结构形式&lt;/strong&gt;：钢结&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;建设地址&lt;/strong&gt;：湖北省·武汉市·东湖新技术开发区·高新大道与光谷 6 路交汇处&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实施时间&lt;/strong&gt;:2019年3月 ~ 2019年5月&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img src=&#34;./../../image/wh.jpg&#34; alt=&#34;中建科技馆&#34; /&gt;&lt;/p&gt;
@@ -43,52 +44,54 @@
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/span&gt;
-&lt;/h2&gt;&lt;p&gt;中建光谷之星（E 地块）中建科技馆项目（下面称“中建科技馆项目”）主要由裙房和位
+&lt;/h2&gt;&lt;p&gt;中建光谷之星（E 地块）中建科技馆项目（下面称“中建科技馆项目”）主要由裙房及位
 于场地中间的“种子”，其中裙房为带“侧弯”的直立锁边屋面及石材山墙构成。“种子”部
 分则由双曲异形不锈钢板面和位于种子中心部分的球面双曲玻璃构成。根据现场施工部署及工
 作安排，不锈钢种子部分为整个项目的进度控制要点。同时，不锈钢种子部分除南北两侧包含
 部分不规则双曲异形玻璃外，其余全部有异形不锈钢板构成。生产加工难度大，是整个项目的
 下料及施工难点，基于此，本总结主要介绍 BIM 在种子部分双曲异形不锈钢板的施工下料方法。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./../../image/wh2.jpg&#34; alt=&#34;中建科技馆&#34; /&gt;&lt;/p&gt;
+&lt;p class=&#34;caption&#34;&gt;为保证施工效果，业主花费数百万制作的1：6&#34;模型&#34;&lt;/p&gt;
 &lt;h3 id=&#34;批量stp文件导出&#34; &gt;批量*stp文件导出
 &lt;span&gt;
     &lt;a href=&#34;#%e6%89%b9%e9%87%8fstp%e6%96%87%e4%bb%b6%e5%af%bc%e5%87%ba&#34;&gt;
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/span&gt;
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; RunScript(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; ParentLayerName, &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; Dir, &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; Toggle, &lt;span style=&#34;color:#66d9ef&#34;&gt;ref&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;object&lt;/span&gt; A)
+&lt;/h3&gt;&lt;p&gt;在项目实施过程中，分包厂家要求将每块双曲异形面板以&lt;code&gt;LOD400&lt;/code&gt;的精度导出成符合工业生产需求的&lt;code&gt;*.stp&lt;/code&gt;格式的三维模型，
+而整个项目共有三千来块完全不同的不锈钢异形板块，首先想到的是增加BIM实施人员，让BIM实施人员手动依次导出板块，但此种方法不但难以保证导出的准确率
+假如后期模型出现变更，工作人员将不得不重新依次导出板块，难以满足项目的施工工期不说项目BIM实施成本将随着模型变更次数的增多而呈现指数级别的增加，这完全背离了幕墙项目使用BIM的初衷。在这种背景下
+，项目团队通过深入分析、梳理此项目的BIM实施流程，使用C#并结合&lt;code&gt;Grassshopper&lt;/code&gt;研发出了能将模型自动导出成&lt;code&gt;*stp&lt;/code&gt;格式文件的程序模块，并将其整合在了&lt;code&gt;Grashopper&lt;/code&gt;中。使用程序替代人工操作，给模型的导出工作提供了极大的便利。间接为项目BIM实施节约了成本。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;void&lt;/span&gt; RunScript(&lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; ParentLayerName, &lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; Dir, &lt;span style=&#34;color:#8be9fd&#34;&gt;bool&lt;/span&gt; Toggle, &lt;span style=&#34;color:#ff79c6&#34;&gt;ref&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;object&lt;/span&gt; A)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//Get target layer&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(!Toggle)&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//Get target layer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt;(!Toggle)&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Layer ParentLayer = Rhino.RhinoDoc.ActiveDoc.Layers.FindName(ParentLayerName);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(ParentLayer == &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;)&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt;(ParentLayer == &lt;span style=&#34;color:#ff79c6&#34;&gt;null&lt;/span&gt;)&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Layer[] a_ChildrenLayer = ParentLayer.GetChildren();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(a_ChildrenLayer == &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      A = ParentLayer.Name + &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; :不包含子图层&amp;#34;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt;(a_ChildrenLayer == &lt;span style=&#34;color:#ff79c6&#34;&gt;null&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      A = ParentLayer.Name + &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34; :不包含子图层&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//Deselect All Object&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Rhino.DocObjects.RhinoObject[] Objs_Temp = Rhino.RhinoDoc.ActiveDoc.Objects.GetSelectedObjects(&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;).ToArray();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;foreach&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; obj &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; Objs_Temp){
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      obj.Select(&lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//Deselect All Object&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Rhino.DocObjects.RhinoObject[] Objs_Temp = Rhino.RhinoDoc.ActiveDoc.Objects.GetSelectedObjects(&lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;, &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;).ToArray();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;foreach&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;var&lt;/span&gt; obj &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; Objs_Temp){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      obj.Select(&lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//select target Object&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; Index = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; Index &amp;lt; a_ChildrenLayer.Length;Index++){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//select target Object&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; Index = &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;; Index &amp;lt; a_ChildrenLayer.Length;Index++){
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      Rhino.DocObjects.RhinoObject[] Objs = Rhino.RhinoDoc.ActiveDoc.Objects.FindByLayer(a_ChildrenLayer[Index]);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; j = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; j &amp;lt; Objs.Length;j++){
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Objs[j].Select(&lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; j = &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;; j &amp;lt; Objs.Length;j++){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Objs[j].Select(&lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//export selected object to stp object&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; str = &lt;span style=&#34;color:#e6db74&#34;&gt;@&amp;#34;-Export &amp;#34;&lt;/span&gt; + Dir + ParentLayerName + &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.stp&amp;#34;&lt;/span&gt; + &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; _enter&amp;#34;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    RhinoApp.RunScript(str, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//export selected object to stp object&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd&#34;&gt;string&lt;/span&gt; str = &lt;span style=&#34;color:#f1fa8c&#34;&gt;@&amp;#34;-Export &amp;#34;&lt;/span&gt; + Dir + ParentLayerName + &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;.stp&amp;#34;&lt;/span&gt; + &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34; _enter&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    RhinoApp.RunScript(str, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;其他&#34; &gt;其他
-&lt;span&gt;
-    &lt;a href=&#34;#%e5%85%b6%e4%bb%96&#34;&gt;
-        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
-    &lt;/a&gt;
-&lt;/span&gt;
-&lt;/h2&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class=&#34;caption&#34;&gt;将当前模型自动导出&lt;code&gt;*.stp&lt;/code&gt;格式功能模块的核心代码&lt;/p&gt;
+## 其他
+</description>
     </item>
     
   </channel>
