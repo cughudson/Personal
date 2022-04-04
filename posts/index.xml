@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
-    <lastBuildDate>Sun, 03 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://cughudson.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WPF学习笔记</title>
+      <link>https://cughudson.github.io/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cughudson.github.io/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;WPF中CommoBox的用法&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-xaml&#34; data-lang=&#34;xaml&#34;&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>ConfuserEx使用方法介绍</title>
@@ -69,8 +79,9 @@
 &lt;/h3&gt;&lt;p&gt;关于DWG缩略图显示有两种方法&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;直接通过AutoCAD内置的方法&lt;code&gt;CMLContentSearchPreviews&lt;/code&gt;获取;&lt;/li&gt;
-&lt;li&gt;依次生成每个图块的sld文件，读取图块的sld文件并将绘制到&lt;code&gt;Bitmap&lt;/code&gt;上&lt;/li&gt;
+&lt;li&gt;每个图块预先生成的slides（sld）文件，解析sld文件并使用GDI生成图片;&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;第一种方法相对比较简单，但缺点也很明显，就是无法获取图块的高清缩略图，且往往无法准确获取图块的缩略图，同时效率较低。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#6272a4&#34;&gt;/*
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;      using Autodesk.AutoCAD.Windows.Data;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;      using System.Windows.Media.Imaging;
@@ -90,9 +101,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; System.Drawing.Image.FromStream(ms) &lt;span style=&#34;color:#ff79c6&#34;&gt;as&lt;/span&gt; Bitmap;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class=&#34;caption&#34;&gt;使用AutoCAD内置方法读取BlockTableRecord缩略图信息&lt;/p&gt;
-&lt;h3 id=&#34;下一步需要解决的问题&#34; &gt;下一步需要解决的问题
+&lt;h3 id=&#34;不同dwg文件之间的图元拷贝&#34; &gt;不同DWG文件之间的图元拷贝
 &lt;span&gt;
-    &lt;a href=&#34;#%e4%b8%8b%e4%b8%80%e6%ad%a5%e9%9c%80%e8%a6%81%e8%a7%a3%e5%86%b3%e7%9a%84%e9%97%ae%e9%a2%98&#34;&gt;
+    &lt;a href=&#34;#%e4%b8%8d%e5%90%8cdwg%e6%96%87%e4%bb%b6%e4%b9%8b%e9%97%b4%e7%9a%84%e5%9b%be%e5%85%83%e6%8b%b7%e8%b4%9d&#34;&gt;
         &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
     &lt;/a&gt;
 &lt;/span&gt;

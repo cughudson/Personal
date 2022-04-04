@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://cughudson.github.io/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/posts/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/rhino/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/wpf/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/xaml/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://cughudson.github.io/tags/.net/</loc>
     <lastmod>2022-04-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -12,15 +36,6 @@
     <lastmod>2022-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cughudson.github.io/tags/dotfuscator/</loc>
-    <lastmod>2022-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cughudson.github.io/</loc>
-    <lastmod>2022-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cughudson.github.io/posts/</loc>
-    <lastmod>2022-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cughudson.github.io/tags/</loc>
     <lastmod>2022-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cughudson.github.io/tags/autocad/</loc>
@@ -41,13 +56,7 @@
     <loc>https://cughudson.github.io/posts/modelcheckerforrhino/</loc>
     <lastmod>2022-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://cughudson.github.io/tags/rhino/</loc>
-    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://cughudson.github.io/posts/%E4%B8%AD%E5%BB%BA%E5%85%89%E8%B0%B7%E4%B9%8B%E6%98%9Fbim%E5%AE%9E%E6%96%BD/</loc>
-    <lastmod>2022-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cughudson.github.io/tags/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2022-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cughudson.github.io/posts/%E6%B7%B1%E5%9C%B3%E5%9B%BD%E9%99%85%E4%BC%9A%E5%B1%95%E4%B8%AD%E5%BF%83bim%E5%AE%9E%E6%96%BD/</loc>
