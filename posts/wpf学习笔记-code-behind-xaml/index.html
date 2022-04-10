@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-cn" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>WPF学习笔记 Code Behind XAML , Data Binding ANd TemplateBinding - Hudson&#39;s Personal Pages</title>
+
+<meta name="description" content="我的WPF学习笔记Code Behind XAML,Data Binding And TemplateBinding">
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="https://cughudson.github.io/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://cughudson.github.io/favicon.png">
+
+<style>
+  body {
+    visibility: hidden;
+    opacity: 0;
+  }
+</style>
+
+<noscript>
+  <style>
+    body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</noscript>
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://cughudson.github.io/css/style.min.5af4fe2f6a60c888490361138ced61cf27c18b5ab174677793d996287ce97079.css" integrity="sha256-WvT&#43;L2pgyIhJA2ETjO1hzyfBi1qxdGd3k9mWKHzpcHk=">
+        
+    
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <script src="https://cughudson.github.io/js/script.min.6be2f166ca5a65680796a4fd21a064fad4c6c64055fa5b37734bb4a66ce01f30.js" type="text/javascript" charset="utf-8" integrity="sha256-a&#43;LxZspaZWgHlqT9IaBk&#43;tTGxkBV&#43;ls3c0u0pmzgHzA="></script>
+    
+
+
+
+
+
+
+
+<meta property="og:title" content="WPF学习笔记 Code Behind XAML , Data Binding ANd TemplateBinding" />
+<meta property="og:description" content="我的WPF学习笔记Code Behind XAML,Data Binding And TemplateBinding" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cughudson.github.io/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-code-behind-xaml/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-07T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="WPF学习笔记 Code Behind XAML , Data Binding ANd TemplateBinding"/>
+<meta name="twitter:description" content="我的WPF学习笔记Code Behind XAML,Data Binding And TemplateBinding"/>
+
+
+
+
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">跳至内容</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <div class="header-top">
+    <h1 class="site-title">
+    <a href="/">Hudson&#39;s Personal Pages</a>
+</h1>
+    <ul class="social-icons">
+
+
+    
+        <li>
+            <a href="https://github.com/cughudson" title="Github" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="mailto:cughudson@126.com" title="Email" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+
+
+    <li>
+            <a href="https://cughudson.github.io/index.xml" title="RSS" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+</ul>
+</div>
+
+    <nav>
+        
+        
+        <a class="" href="https://cughudson.github.io/about/" title="">关于</a>
+        
+        <a class="" href="https://cughudson.github.io/tags/" title="">标签</a>
+        
+        <a class="" href="https://cughudson.github.io/posts/" title="">文章</a>
+        
+        <a class="" href="https://cughudson.github.io/resume/" title="">我的简历</a>
+        
+    </nav>
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+
+    <article class="post h-entry">
+        <div class="post-header">
+            <header>
+                <h1 class="p-name post-title">WPF学习笔记 Code Behind XAML , Data Binding ANd TemplateBinding</h1>
+
+                
+            </header>
+        </div>
+        <div class="content e-content">
+            <h2 id="code-behind-and-the-xaml-language" >Code-Behind and the XAML Language
+<span>
+    <a href="#code-behind-and-the-xaml-language">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h2><p>The XAML language includes language-level features that make it possible to associate code file with markup files, from the markup file side. Specifically, the XAML language defines the language features x:Class Directive, x:Subclass Directive, and x:ClassModifier Directive.</p>
+<h2 id="code-behind-event-handler-and-partial-classs-requirements-in-wpf" >Code-behind, Event Handler, and Partial Classs Requirements in WPF
+<span>
+    <a href="#code-behind-event-handler-and-partial-classs-requirements-in-wpf">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h2><ul>
+<li>The partial class must derive from the type that back the root element;</li>
+<li>Note that under the default behavior of the markup compile build actions, you can leave the derivation blank in the partial class definition on the code-behind side. The compiled result will assume the page root&rsquo;s backing type to be the basis for the partial class, even if it not specified. However, relying on this behavior is not a best practice.</li>
+</ul>
+<h2 id="templatebinding" >TemplateBinding
+<span>
+    <a href="#templatebinding">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h2><h2 id="databinding" >DataBinding
+<span>
+    <a href="#databinding">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h2><p>Any <code>ContentControl</code> such as Button and any <code>ItemsControl</code>, such as ListBox and ListView, have built-in functionality to enable flexible styling of single data items or collections of data items. Sort, filter, and group views can be generated on top of the data.</p>
+<h3 id="basic-data-binding-conceptss" >Basic data binding conceptss
+<span>
+    <a href="#basic-data-binding-conceptss">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h3><p>Regardless of what element you&rsquo;re binding and the nature of your data source, each binding always follows the model illustrated by the following figure.
+<img src="https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/media/index/basic-data-binding-diagram.png?view=netdesktop-6.0" alt="" /></p>
+<p>Each binding has four componens:</p>
+<ul>
+<li>A binding target object,</li>
+<li>A target property,</li>
+<li>A binding source,</li>
+<li>A <strong>path</strong> to the value in the binding source to use</li>
+</ul>
+<p>For example, if you bound the conten of a  <code>TextBox</code> to the <code>Employee.Name</code> property, you would set up your binding like the following table;</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target</td>
+<td>TextBox</td>
+</tr>
+<tr>
+<td>Target property</td>
+<td>Text</td>
+</tr>
+<tr>
+<td>Source object</td>
+<td><code>Employee</code></td>
+</tr>
+<tr>
+<td>Source object value path</td>
+<td><code>Name</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>The target property must be a deppendency property</strong>
+Only types derived from <code>DependencyObject</code> can define dependency properties, All <code>UIElement</code> types derive(继承) from <code>DependencyObject</code>.</p>
+</li>
+<li>
+<p>Binding sources aren&rsquo;t restriced to custom .NET objects</p>
+</li>
+</ul>
+<p><img src="https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/media/index/databinding-dataflow.png?view=netdesktop-6.0" alt="" /></p>
+<h3 id="binding-mode" >Binding Mode
+<span>
+    <a href="#binding-mode">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h3><p><strong>OneWay</strong> : To See the picture above
+<strong>TwoWay</strong>: To See the picture above
+<strong>OneWayToSource</strong>: To See the picture above</p>
+<p>To delect source changes, the source must implement a suitable property change notification mechanism such as <code>INotifyPropertyChanged. </code> the demo is below;</p>
+<h2 id="crete-a-binding" >Crete a Binding
+<span>
+    <a href="#crete-a-binding">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h2><p>Consider the following example, in which the binding source oobject i a class named MyDat thaat is defined in th SDKSample namespace. for demonstration purposes MyDatat</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">DockPanel</span> <span style="color:#50fa7b">xmlns</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.microsoft.com/winfx/2006/xaml/presentation&#34;</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#50fa7b">xmlns:x</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.microsoft.com/winfx/2006/xaml&#34;</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#50fa7b">xmlns:c</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;clr-namespace:SDKSample&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>           <span style="color:#6272a4">&lt;!-- this is dockpanel resource --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">DockPanel.Resources</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff79c6">c:MyData</span> <span style="color:#50fa7b">x:Key</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;myDataSource&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff79c6">DockPanel.Resources</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">DockPanel.DataContext</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff79c6">Binding</span> <span style="color:#50fa7b">Source</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{StaticResource myDataSource}&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff79c6">DockPanel.DataContext</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">Button</span> <span style="color:#50fa7b">Background</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{Binding Path=ColorName}&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#50fa7b">Width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;150&#34;</span> <span style="color:#50fa7b">Height</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;30&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        I am bound to be RED!
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff79c6">Button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">DockPanel</span>&gt;
+</span></span></code></pre></div><h3 id="specifying-the-binding-source" >Specifying the binding source
+<span>
+    <a href="#specifying-the-binding-source">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h3><p>Notice that in the previous example, the binding source is specified by setting the <code>DockPanel.DataContext</code>property The Button then inherits the DataContext value from the DockPanel, <strong>which is its parent element.</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">DockPanel</span> <span style="color:#50fa7b">xmlns</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.microsoft.com/winfx/2006/xaml/presentation&#34;</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#50fa7b">xmlns:x</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.microsoft.com/winfx/2006/xaml&#34;</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#50fa7b">xmlns:c</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;clr-namespace:SDKSample&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">DockPanel.Resources</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff79c6">c:MyData</span> <span style="color:#50fa7b">x:Key</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;myDataSource&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff79c6">DockPanel.Resources</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">Button</span> <span style="color:#50fa7b">Background</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{Binding Source={StaticResource myDataSource}, Path=ColorName}&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#50fa7b">Width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;150&#34;</span> <span style="color:#50fa7b">Height</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;30&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        I am bound to be RED!
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff79c6">Button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">DockPanel</span>&gt;
+</span></span></code></pre></div><h3 id="specifying-the-path-to-the-value" >Specifying the path to the value
+<span>
+    <a href="#specifying-the-path-to-the-value">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h3><p>If your binding source is an object, you use the Binding.Path property to specify the value to use for your binding. If you&rsquo;re binding to XML data, you use the Binding.XPath property to specify the value. In some cases, it may be applicable to use the Path property even when your data is XML. For example, if you want to access the Name property of a returned XmlNode (as a result of an XPath query), you should use the Path property in addition to the XPath property.</p>
+<h3 id="binding-to-collections" >Binding to Collections
+<span>
+    <a href="#binding-to-collections">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h3><hr />
+<ul>
+<li><strong>Grid</strong>中可以包含Grid，</li>
+<li>XAML使用本地未安装的字体 FontFamily = &ldquo;Fonts/#fontFilename&rdquo;``</li>
+<li><code>templateBinding</code> 在模板内进行绑定</li>
+</ul>
+<h2 id="cardday-usercontroldemo" >cardDay UserControlDemo
+<span>
+    <a href="#cardday-usercontroldemo">
+        <svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg>
+    </a>
+</span>
+</h2><p><strong>XAML File</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">UserControl</span> <span style="color:#50fa7b">x:Class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Weather.UserControls.CardDay&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#50fa7b">xmlns</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.microsoft.com/winfx/2006/xaml/presentation&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#50fa7b">xmlns:x</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.microsoft.com/winfx/2006/xaml&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#50fa7b">xmlns:mc</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.openxmlformats.org/markup-compatibility/2006&#34;</span> 
+</span></span><span style="display:flex;"><span>             <span style="color:#50fa7b">xmlns:d</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;http://schemas.microsoft.com/expression/blend/2008&#34;</span> 
+</span></span><span style="display:flex;"><span>             <span style="color:#50fa7b">mc:Ignorable</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;d&#34;</span> <span style="color:#50fa7b">Name</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;cardDay&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">&lt;!---style的行内表达方式 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff79c6">Border</span> <span style="color:#50fa7b">CornerRadius</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;10&#34;</span> <span style="color:#50fa7b">Width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;85&#34;</span> <span style="color:#50fa7b">Padding</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;10&#34;</span> <span style="color:#50fa7b">Margin</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0 0 10 0&#34;</span> <span style="color:#50fa7b">BorderThickness</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;1&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff79c6">Border.Style</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff79c6">Style</span> <span style="color:#50fa7b">TargetType</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Border&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Background&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;White&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;BorderBrush&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#e9e9e9&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Style</span>.<span style="color:#50fa7b">Triggers</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Trigger</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;IsMouseOver&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;True&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">&lt;!</span><span style="color:#ff79c6">--</span><span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Background&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#F6F6F6&#34;</span> <span style="color:#ff79c6">/&gt;</span><span style="color:#ff79c6">--</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;BorderBrush&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#03A9F4&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">Trigger</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">Style</span>.<span style="color:#50fa7b">Triggers</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff79c6">Style</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff79c6">Border.Style</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff79c6">StackPanel</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff79c6">TextBlock</span> <span style="color:#50fa7b">Text</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{Binding Path=Day,ElementName=cardDay}&#34;</span> <span style="color:#50fa7b">TextAlignment</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Center&#34;</span> <span style="color:#50fa7b">FontSize</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;14&#34;</span> <span style="color:#50fa7b">FontWeight</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;SemiBold&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff79c6">Image</span> <span style="color:#50fa7b">Source</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{Binding Path=Source,ElementName=cardDay}&#34;</span> <span style="color:#50fa7b">Width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;30&#34;</span> <span style="color:#50fa7b">Margin</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0 10 0 10&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff79c6">StackPanel</span> <span style="color:#50fa7b">Orientation</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Horizontal&#34;</span> <span style="color:#50fa7b">HorizontalAlignment</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Center&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff79c6">TextBlock</span> <span style="color:#50fa7b">Text</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{Binding Path=MaxNum,ElementName=cardDay}&#34;</span> <span style="color:#50fa7b">TextAlignment</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Center&#34;</span> <span style="color:#50fa7b">FontWeight</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;SemiBold&#34;</span> <span style="color:#50fa7b">Margin</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0 0 8 0&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff79c6">TextBlock</span> <span style="color:#50fa7b">Text</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{Binding Path=MinNum,ElementName=cardDay}&#34;</span> <span style="color:#50fa7b">TextAlignment</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Center&#34;</span> <span style="color:#50fa7b">FontWeight</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;SemiBold&#34;</span> <span style="color:#50fa7b">Foreground</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#7a7a7a&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff79c6">StackPanel</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff79c6">StackPanel</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff79c6">Border</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">UserControl</span>&gt;
+</span></span></code></pre></div><p><strong>C# File</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Windows;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Windows.Controls;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Windows.Media;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Weather.UserControls
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">partial</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CardDay</span> : UserControl
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> CardDay()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            InitializeComponent();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//define propertity</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Day
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">get</span> { <span style="color:#ff79c6">return</span> (<span style="color:#8be9fd">string</span>)GetValue(DayProperty); }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">set</span> { SetValue(DayProperty, <span style="color:#ff79c6">value</span>); }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        //
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// 1.You can&#39;t register same DP twice. To comply with this constraint you should use static variable, it will be initialized only one time thus you will register DP one time only.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//2.DP should be registered before any class (which uses that DB) instance created</span>
+</span></span><span style="display:flex;"><span>        //
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> DependencyProperty DayProperty = DependencyProperty.Register(<span style="color:#f1fa8c">&#34;Day&#34;</span>, <span style="color:#ff79c6">typeof</span>(<span style="color:#8be9fd">string</span>), <span style="color:#ff79c6">typeof</span>(CardDay));
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> ImageSource Source
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">get</span> { <span style="color:#ff79c6">return</span> (ImageSource)GetValue(SourceProperty); }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">set</span> { SetValue(SourceProperty, <span style="color:#ff79c6">value</span>); }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> DependencyProperty SourceProperty = DependencyProperty.Register(<span style="color:#f1fa8c">&#34;Source&#34;</span>, <span style="color:#ff79c6">typeof</span>(ImageSource), <span style="color:#ff79c6">typeof</span>(CardDay));
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> MaxNum
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">get</span> { <span style="color:#ff79c6">return</span> (<span style="color:#8be9fd">string</span>)GetValue(MaxNumProperty); }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">set</span> { SetValue(MaxNumProperty, <span style="color:#ff79c6">value</span>); }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> DependencyProperty MaxNumProperty = DependencyProperty.Register(<span style="color:#f1fa8c">&#34;MaxNum&#34;</span>, <span style="color:#ff79c6">typeof</span>(<span style="color:#8be9fd">string</span>), <span style="color:#ff79c6">typeof</span>(CardDay));
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> MinNum
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">get</span> { <span style="color:#ff79c6">return</span> (<span style="color:#8be9fd">string</span>)GetValue(MinNumProperty); }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">set</span> { SetValue(MinNumProperty, <span style="color:#ff79c6">value</span>); }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> DependencyProperty MinNumProperty = DependencyProperty.Register(<span style="color:#f1fa8c">&#34;MinNum&#34;</span>, <span style="color:#ff79c6">typeof</span>(<span style="color:#8be9fd">string</span>), <span style="color:#ff79c6">typeof</span>(CardDay));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>XAML</strong>本质上就是用XML写C#,每一个标签相当于一个类，标签内部的标签相当于他的Children;
+XAML Trigger 知多少</p>
+<p><strong>If you have a <code>standalone ControlTemplate</code> in the resources section with the TargetType property set to a type, <code>the ControlTemplate does not get applied to that type automatically</code>. Instead, <code>you need to specify an x:Key and apply the template explicitly(显式的)</code>.</strong></p>
+<p><strong>自定义Trigger属性</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">Style</span> <span style="color:#50fa7b">x:Key</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;SliderStyle1&#34;</span> <span style="color:#50fa7b">TargetType</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{x:Type Slider}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Stylus.IsPressAndHoldEnabled&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Background&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Transparent&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;BorderBrush&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;#dddddd&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;BorderThickness&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;3&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Foreground&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;red&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Template&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{StaticResource SliderHorizontal}&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;!</span><span style="color:#ff79c6">--trigger也是可以自定义的</span>，<span style="color:#ff79c6">比如下面</span> <span style="color:#ff79c6">如果属性Orientation的数值为Vertical时</span>，<span style="color:#ff79c6">这个时候就将template设置为SliderVertical--</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Style</span>.<span style="color:#50fa7b">Triggers</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Trigger</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Orientation&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Vertical&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;</span><span style="color:#ff79c6">Setter</span> <span style="color:#ff79c6">Property</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Template&#34;</span> <span style="color:#ff79c6">Value</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{StaticResource SliderVertical}&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">Trigger</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/</span><span style="color:#ff79c6">Style</span>.<span style="color:#50fa7b">Triggers</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff79c6">Style</span>&gt;
+</span></span></code></pre></div>
+        </div>
+        
+
+
+<div class="post-info">
+    
+        <div class="post-date dt-published">2022-04-07</div>
+    
+
+    <a class="post-hidden-url u-url" href="https://cughudson.github.io/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-code-behind-xaml/">https://cughudson.github.io/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-code-behind-xaml/</a>
+    <a href="https://cughudson.github.io" class="p-name p-author post-hidden-author h-card" rel="me">hudson</a>
+
+
+    <div class="post-taxonomies">
+        
+            
+                <ul class="post-tags">
+                    
+                        
+                        <li><a href="https://cughudson.github.io/tags/%E7%AC%94%E8%AE%B0/">#笔记</a></li>
+                    
+                        
+                        <li><a href="https://cughudson.github.io/tags/wpf/">#WPF</a></li>
+                    
+                        
+                        <li><a href="https://cughudson.github.io/tags/xaml/">#XAML</a></li>
+                    
+                </ul>
+        
+    </div>
+</div>
+
+        
+        
+    </article>
+
+    
+        
+        
+            <h3 class="read-next-title">继续阅读</h3>
+            <ul class="read-next-posts">
+                
+                <li><a href="/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-data-binding-overview/">WPF学习笔记 Data Templating Overview</a></li>
+                
+                <li><a href="/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-resource/">WPF学习笔记 Resource</a></li>
+                
+                <li><a href="/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-styles-and-template/">WPF学习笔记 Styles And Template</a></li>
+                
+                <li><a href="/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-controltemplate/">WPF学习笔记-Control Templating</a></li>
+                
+                <li><a href="/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">WPF学习笔记</a></li>
+                
+            </ul>
+        
+    
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item disabled">
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-data-binding-overview/">WPF学习笔记 Data Templating Overview</a>
+            
+        </div>
+    </div>
+
+
+
+
+    
+
+    
+
+    
+    
+<script src="https://utteranc.es/client.js"
+        repo="cughudson/cughudson.github.io"
+        issue-term="title"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
+    
+    
+
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>© Hudson, 2022<br>
+            Powered By <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, Theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis With Custom</a>.<br>
+            
+            </p>  
+        </div> 
+
+        
+
+    
+
+
+
+
+<script>
+const STORAGE_KEY = 'user-color-scheme'
+const defaultTheme = "light-without-switcher"
+
+let currentTheme
+let switchButton
+let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+const autoChangeScheme = e => {
+    currentTheme = e.matches ? 'dark' : 'light'
+    document.documentElement.setAttribute('data-theme', currentTheme)
+    changeButtonText()
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    switchButton = document.querySelector('.theme-switcher')
+    currentTheme = detectCurrentScheme()
+    if (currentTheme == 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark')
+    }
+    if (currentTheme == 'auto') {
+        autoChangeScheme(autoDefinedScheme);
+        autoDefinedScheme.addListener(autoChangeScheme);
+    }
+
+    if (switchButton) {
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    }
+  
+    showContent()
+})
+
+function detectCurrentScheme() {
+    if (localStorage.getItem(STORAGE_KEY)) {
+        return localStorage.getItem(STORAGE_KEY)
+    } 
+    if (defaultTheme) {
+        return defaultTheme
+    } 
+    if (!window.matchMedia) {
+        return 'light'
+    } 
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+    }
+    return 'light'
+}
+
+function changeButtonText(switchButton)
+{   
+    if (switchButton) {
+        switchButton.textContent = currentTheme == 'dark' ?  "Light Theme" : "Dark Theme"
+    }
+}
+
+function switchTheme(e) {
+    if (currentTheme == 'dark') {
+        localStorage.setItem(STORAGE_KEY, 'light')
+        document.documentElement.setAttribute('data-theme', 'light')
+        currentTheme = 'light'
+    } else {
+        localStorage.setItem(STORAGE_KEY, 'dark')
+        document.documentElement.setAttribute('data-theme', 'dark')
+        currentTheme = 'dark'
+    }
+    changeButtonText()
+}
+
+function showContent() {
+    document.body.style.visibility = 'visible';
+    document.body.style.opacity = 1;
+}
+</script>   
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=https://cughudson.github.io class="p-name u-url url fn" rel="me">Hudson</a> 
+
+     
+        /
+        <a class="p-email u-email email" rel="me" href="mailto:cughudson@126.com">cughudson@126.com</a>
+    
+
+    
+</p> 
+</footer>
+
+        
+    </div>
+</body>
+</html>

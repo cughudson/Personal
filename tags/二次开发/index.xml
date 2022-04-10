@@ -7,20 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
-    <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://cughudson.github.io/tags/%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>WPF学习笔记</title>
-      <link>https://cughudson.github.io/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://cughudson.github.io/posts/wpf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      <description>&lt;p&gt;WPF中CommoBox的用法&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-xaml&#34; data-lang=&#34;xaml&#34;&gt;&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
     
     <item>
       <title>DWGLibrary For AutoCAD插件介绍</title>
@@ -59,7 +49,7 @@
 &lt;li&gt;使用Visual Studio创建&amp;quot;Installer&amp;quot;工程实现软件打包，但该方法步骤相对繁琐且不够轻便，优点是可定制性强;&lt;/li&gt;
 &lt;li&gt;使用第三方如&lt;code&gt;NISS&lt;/code&gt;（免费）、&lt;code&gt;innoSetup&lt;/code&gt;（免费）、&lt;code&gt;installshield&lt;/code&gt;（收费）等打包软件进行打包生成软件安装包，此方法方便快捷。对于前两者还需要打包者有一定的编程经验;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;在本项目中，使用的是&lt;code&gt;innoSetup&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在打包本插件时，使用的是&lt;code&gt;innoSetup&lt;/code&gt;，innoSetup使用的是Pascal语言作为软件打包配置语言，因此对于有编程经验的人员会比较友好。关于如何使用innoSetup对软件进行打包请参见本博客的另一篇文章&lt;a href=&#34;&#34;&gt;innoSetup使用方法介绍&lt;/a&gt;;&lt;/p&gt;
 &lt;h3 id=&#34;dwg图块缩略图显示&#34; &gt;DWG图块缩略图显示
 &lt;span&gt;
     &lt;a href=&#34;#dwg%e5%9b%be%e5%9d%97%e7%bc%a9%e7%95%a5%e5%9b%be%e6%98%be%e7%a4%ba&#34;&gt;
@@ -69,15 +59,16 @@
 &lt;/h3&gt;&lt;p&gt;关于DWG缩略图显示有两种方法&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;直接通过AutoCAD内置的方法&lt;code&gt;CMLContentSearchPreviews&lt;/code&gt;获取;&lt;/li&gt;
-&lt;li&gt;每个图块预先生成的slides（sld）文件，解析sld文件并使用GDI生成图片;&lt;/li&gt;
+&lt;li&gt;每个图块预先生成的slides（sld）文件，解析sld文件并使用GDI生成DWG图块缩略图;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;第一种方法相对比较简单，但缺点也很明显，就是无法获取图块的高清缩略图，且往往无法准确获取图块的缩略图，同时效率较低。&lt;/p&gt;
+&lt;p&gt;第一种方法比较简单，可动态获取CAD图块的缩略图，但缺点也很明显，首先使用该方法无法获取任意尺寸的DWG图块的缩略图，同时，在某些特殊情况下该方法会返回空值（null），无法获取到图块的缩略图。使用该方法获取DWG图块的缩略图主要代码如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#6272a4&#34;&gt;/*
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;      using Autodesk.AutoCAD.Windows.Data;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;      using System.Windows.Media.Imaging;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;   */&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; Bitmap GetBTRThumnail()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; Bitmap GetBTRThumnail(BlockTableRecord btr)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#6272a4&#34;&gt;// `CMLContentSearchPreviews`返回的是BitmapSource，而非Bitmap&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      BitmapSource bs = CMLContentSearchPreviews.GetBlockTRThumbnail(btr) &lt;span style=&#34;color:#ff79c6&#34;&gt;as&lt;/span&gt; BitmapSource;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; BitmapSrcToBitmap(bs);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   }
@@ -91,6 +82,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; System.Drawing.Image.FromStream(ms) &lt;span style=&#34;color:#ff79c6&#34;&gt;as&lt;/span&gt; Bitmap;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class=&#34;caption&#34;&gt;使用AutoCAD内置方法读取BlockTableRecord缩略图信息&lt;/p&gt;
+&lt;p&gt;第二种方法，可获取DWG文件或者图块的任意清晰度的缩略图，稳定可靠。不足之处是需预先获取图块的&lt;code&gt;*.sld&lt;/code&gt;文件，也就是动态的获得CAD图块的缩略图。&lt;code&gt;*.sld&lt;/code&gt;文件是一个二进制矢量图形文件，由Autodesk公司开发，该文件编码尚未对外开源，因此准确获取sld文件中所存储的二进制信息成为使用该方法获取缩略图的最大障碍。在编写sld文件解析代码时，参考了部分&lt;a href=&#34;https://github.com/ADN-DevTech/AutoCAD-Slide-Library-Manager&#34;&gt;Github&lt;/a&gt;源代码，并将其整理成sld显示控件（winforms版本）&lt;/p&gt;
 &lt;h3 id=&#34;不同dwg文件之间的图元拷贝&#34; &gt;不同DWG文件之间的图元拷贝
 &lt;span&gt;
     &lt;a href=&#34;#%e4%b8%8d%e5%90%8cdwg%e6%96%87%e4%bb%b6%e4%b9%8b%e9%97%b4%e7%9a%84%e5%9b%be%e5%85%83%e6%8b%b7%e8%b4%9d&#34;&gt;
