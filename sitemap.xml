@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://cughudson.github.io/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/note/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/posts/note/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/posts/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/wpf/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/xaml/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://cughudson.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-04-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://cughudson.github.io/tags/.net/</loc>
     <lastmod>2022-04-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -12,15 +36,6 @@
     <lastmod>2022-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cughudson.github.io/tags/dotfuscator/</loc>
-    <lastmod>2022-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cughudson.github.io/</loc>
-    <lastmod>2022-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cughudson.github.io/posts/</loc>
-    <lastmod>2022-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cughudson.github.io/tags/</loc>
     <lastmod>2022-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://cughudson.github.io/tags/autocad/</loc>
@@ -49,8 +64,6 @@
   </url><url>
     <loc>https://cughudson.github.io/tags/%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2022-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://cughudson.github.io/posts/innosetup%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D/</loc>
   </url><url>
     <loc>https://cughudson.github.io/resume/</loc>
   </url><url>

@@ -7,10 +7,415 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Hudson</copyright>
-    <lastBuildDate>Sun, 03 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Apr 2022 00:00:00 +0000</lastBuildDate>
     
     <atom:link href="https://cughudson.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes</title>
+      <link>https://cughudson.github.io/posts/note/</link>
+      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://cughudson.github.io/posts/note/</guid>
+      <description>&lt;p&gt;-&lt;/p&gt;
+&lt;h3 id=&#34;wpf中commobox的用法案例&#34; &gt;WPF中CommoBox的用法案例
+&lt;span&gt;
+    &lt;a href=&#34;#wpf%e4%b8%adcommobox%e7%9a%84%e7%94%a8%e6%b3%95%e6%a1%88%e4%be%8b&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/11&lt;/p&gt;
+&lt;p&gt;下面的代码包含了&lt;code&gt;XAML&lt;/code&gt;代码及&lt;code&gt;C#&lt;/code&gt;代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!-- myComboxBox 相当于这个类的类名 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Combox&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;x:Name&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;myComboxBox&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Grid&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;Column&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Combox.ItemTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;stackPanel&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Orientation&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Horizontal&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!-- 通过组合元素创建出丰富的dropdown类型 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Image&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;20&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;20&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Source&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;c:\Temp\Tim.png&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding FirstName}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding LastName}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;stackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;Combox.ItemTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;Combox&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class=&#34;caption&#34;&gt;ComboxBox XAML语法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Java&#34; data-lang=&#34;Java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; partial &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;MainWindow&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt;Window
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; List&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Person&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; people &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; List&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Person&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;MainWindow&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            InitializeComponent&lt;span style=&#34;color:#ff79c6&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            people&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;Add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Person&lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;FirstName&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Tim&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt;LastName&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Corey&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            people&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;Add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Person&lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;FirstName&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Joe&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt;LastName&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Smith&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            people&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;Add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Person&lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;FirstName&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Sue&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt;LastName&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;torm&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        myComboBox&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;ItemsSource&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; people&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Person&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; string FirstName&lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;set&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;get&lt;span style=&#34;color:#ff79c6&#34;&gt;;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; string LastName&lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;set&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;get&lt;span style=&#34;color:#ff79c6&#34;&gt;;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr /&gt;
+&lt;h3 id=&#34;-符号在c字符串中的妙用&#34; &gt;&lt;code&gt;$&lt;/code&gt; 符号在C#字符串中的妙用
+&lt;span&gt;
+    &lt;a href=&#34;#-%e7%ac%a6%e5%8f%b7%e5%9c%a8c%e5%ad%97%e7%ac%a6%e4%b8%b2%e4%b8%ad%e7%9a%84%e5%a6%99%e7%94%a8&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/11&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//字符串中的$用法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; a &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    string.Format($&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Hello {a}&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;//Output Hello 0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr /&gt;
+&lt;h3 id=&#34;mergeddictionaries的用法&#34; &gt;MergedDictionaries的用法
+&lt;span&gt;
+    &lt;a href=&#34;#mergeddictionaries%e7%9a%84%e7%94%a8%e6%b3%95&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/11&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;ResourceDictionary&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;xmlns=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;http://schemas.microsoft.com/winfx/2006/xaml/presentation&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#50fa7b&#34;&gt;xmlns:x=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;http://schemas.microsoft.com/winfx/2006/xaml&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;ResourceDictionary.MergedDictionaries&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;ResourceDictionary&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Source=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/CustomControls/AnalogClockstyle.xaml&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/ResourceDictionary.MergedDictionaries&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/ResourceDictionary&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p class=&#34;caption&#34;&gt;Generic.xaml&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&#34;winmmdll可以用来播放mp3代码&#34; &gt;&lt;code&gt;winmm.dll&lt;/code&gt;可以用来播放mp3代码
+&lt;span&gt;
+    &lt;a href=&#34;#winmmdll%e5%8f%af%e4%bb%a5%e7%94%a8%e6%9d%a5%e6%92%ad%e6%94%bemp3%e4%bb%a3%e7%a0%81&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/11&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&#34;什么是数据模板datatemplate&#34; &gt;什么是数据模板（DataTemplate）
+&lt;span&gt;
+    &lt;a href=&#34;#%e4%bb%80%e4%b9%88%e6%98%af%e6%95%b0%e6%8d%ae%e6%a8%a1%e6%9d%bfdatatemplate&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/11&lt;/p&gt;
+DataTemplate is about the presentation of data and **is one of the many features** provided by the WPF styling and templating model.
+下面是一个关于数据模板的简单案例 myTodoList是一个类
+```html
+&lt;Window x:Class=&#34;SDKSample.Window1&#34;
+    xmlns=&#34;http://schemas.microsoft.com/winfx/2006/xaml/presentation&#34;
+    xmlns:x=&#34;http://schemas.microsoft.com/winfx/2006/xaml&#34;
+    xmlns:local=&#34;clr-namespace:SDKSample&#34;
+    Title=&#34;Introduction to Data Templating Sample&#34;&gt;
+    &lt;Window.Resources&gt;
+        &lt;DataTemplate x:Key=&#34;myTaskTemplate&#34;&gt;
+            &lt;StackPanel&gt;
+                &lt;TextBlock Text=&#34;{Binding Path=TaskName}&#34; /&gt;
+                &lt;TextBlock Text=&#34;{Binding Path=Description}&#34;/&gt;
+                &lt;TextBlock Text=&#34;{Binding Path=Priority}&#34;/&gt;
+            &lt;/StackPanel&gt;
+        &lt;/DataTemplate&gt;
+        &lt;local:MyData x:Key=&#34;myTodoLisst&#34;&gt;
+    &lt;/Window.Resources&gt;
+    &lt;StackPanel&gt;
+        &lt;TextBlock Name=&#34;blah&#34; FontSize=&#34;20&#34; Text=&#34;My Task List:&#34;/&gt;
+        &lt;ListBox Width=&#34;400&#34; Margin=&#34;10&#34;
+                ItemsSource=&#34;{Binding Source={StaticResource myTodoList}}&#34;
+                dataTemplate=&#34;{Binding Source={StaticResource myTaskTemplate}}&#34;
+                /&gt;
+    &lt;/StackPanel&gt;
+&lt;/Window&gt;
+```
+----
+### 设置一个行内数据模板
+&lt;p class=&#34;hint&#34;&gt;2022/04/12&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Width&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;400&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Margin&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#50fa7b&#34;&gt;ItemsSource&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Source={StaticResource myTodoList}}&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox.ItemTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=TaskName}&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=Description}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=Priority}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox.ItemTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr /&gt;
+&lt;h3 id=&#34;datatriggers即当数据等于特定数值时触发该datatrigger&#34; &gt;DataTriggers，即当数据等于特定数值时，触发该DataTrigger
+&lt;span&gt;
+    &lt;a href=&#34;#datatriggers%e5%8d%b3%e5%bd%93%e6%95%b0%e6%8d%ae%e7%ad%89%e4%ba%8e%e7%89%b9%e5%ae%9a%e6%95%b0%e5%80%bc%e6%97%b6%e8%a7%a6%e5%8f%91%e8%af%a5datatrigger&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/12&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!-- 如果TaskType为Home则BorderBrush为Yellow --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;x:Key&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;myTaskTemplate&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate.Triggers&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTrigger&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Binding&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=TaskType}&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTrigger.Value&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!-- 这样可以访问本地变量 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;local:TaskType&lt;/span&gt;&amp;gt;Home&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;local:TaskType&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTrigger.Value&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TargetName&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;border&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Property&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;BorderBrush&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Value&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Yellow&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTrigger&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate.Triggers&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr /&gt;
+&lt;h3 id=&#34;统一定义border内部textblock的字体颜色及字体大小颜色&#34; &gt;统一定义Border内部TextBlock的字体颜色及字体大小颜色
+&lt;span&gt;
+    &lt;a href=&#34;#%e7%bb%9f%e4%b8%80%e5%ae%9a%e4%b9%89border%e5%86%85%e9%83%a8textblock%e7%9a%84%e5%ad%97%e4%bd%93%e9%a2%9c%e8%89%b2%e5%8f%8a%e5%ad%97%e4%bd%93%e5%a4%a7%e5%b0%8f%e9%a2%9c%e8%89%b2&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/12&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!-- 定义其内部TextBlock的属性 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Border&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TextBlock&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;Foreground&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;red&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TextBlock&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;FontSize&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;42&amp;#34;&lt;/span&gt; &amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;Border&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr /&gt;
+&lt;h3 id=&#34;controltemplate的使用方法templatebinding-的意思是将该属性绑定到父元素的该属性&#34; &gt;ControlTemplate的使用方法，TemplateBinding 的意思是将该属性绑定到父元素的该属性
+&lt;span&gt;
+    &lt;a href=&#34;#controltemplate%e7%9a%84%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95templatebinding-%e7%9a%84%e6%84%8f%e6%80%9d%e6%98%af%e5%b0%86%e8%af%a5%e5%b1%9e%e6%80%a7%e7%bb%91%e5%ae%9a%e5%88%b0%e7%88%b6%e5%85%83%e7%b4%a0%e7%9a%84%e8%af%a5%e5%b1%9e%e6%80%a7&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Template is a dependency property of Control&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Style&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;x:Key&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;DialogButtonStyle&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TargetType&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Button&amp;#34;&lt;/span&gt; &amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Property&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Template&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;Value&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ControlTemplate&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;TargetType&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{x:Type Button}&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Grid&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Ellipse&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Fill&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{TemplateBinding Background}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                             &lt;span style=&#34;color:#ff79c6&#34;&gt;Stroke&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{TemplateBinding BorderBrush}&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ContentPresenter&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;HorizontalAlignment&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                          &lt;span style=&#34;color:#ff79c6&#34;&gt;VerticalAlignment&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Grid&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;            
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ControlTemplate&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;Value&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;Style&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;下面是使用该Style的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Button&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Style&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{StaticResouce DialogButtonStyle&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr /&gt;
+&lt;h3 id=&#34;wpf中resource指代的是什么&#34; &gt;WPF中Resource指代的是什么
+&lt;span&gt;
+    &lt;a href=&#34;#wpf%e4%b8%adresource%e6%8c%87%e4%bb%a3%e7%9a%84%e6%98%af%e4%bb%80%e4%b9%88&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/12&lt;/p&gt;
+&lt;p&gt;分布于程序（Application）当中,且可以重复使用的对象叫做&lt;code&gt;Resource&lt;/code&gt;,Resource一般有两种展示形式，分别为&lt;code&gt;XAML Resources&lt;/code&gt;以及独立的&lt;code&gt;Resources&lt;/code&gt;文件，Resource文件中可以包含&lt;code&gt;Brushes&lt;/code&gt;及样式；&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solid Brushs&lt;/strong&gt; Resource DEMO&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!-- Key is the name of the solidColorBrush --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;SolidColorBrush&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;x:Key&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;MyBrush&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Color&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;#05E0E9&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用代码将Resource赋予Button&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Button btn;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;btn.Background &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; (Brush)&lt;span style=&#34;color:#ff79c6&#34;&gt;this&lt;/span&gt;.FindResource(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;MyBrush&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;每一个&lt;code&gt;Framework-level&lt;/code&gt;元素均包含一个Resources 属性，因此可以将任意属性赋予&lt;code&gt;Framework-level&lt;/code&gt;
+Resources 属性类别是 &lt;code&gt;ResourceDictionary&lt;/code&gt;，且该文件中包含resources的定义，resources通常定义在根元素中。&lt;/p&gt;
+&lt;h3 id=&#34;contentcontrol-与itemscontrol&#34; &gt;ContentControl 与ItemsControl
+&lt;span&gt;
+    &lt;a href=&#34;#contentcontrol-%e4%b8%8eitemscontrol&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/12&lt;/p&gt;
+&lt;p&gt;//TODO&lt;/p&gt;
+&lt;h3 id=&#34;datatemplates&#34; &gt;DataTemplates
+&lt;span&gt;
+    &lt;a href=&#34;#datatemplates&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/12&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;行内DataTemplate&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Width&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;400&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Margin&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#50fa7b&#34;&gt;ItemsSource&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Source={StaticResource myTodoList}}&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox.ItemTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=TaskName}&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=Description}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=Priority}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox.ItemTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;独立的DataTemplate&lt;/strong&gt;&lt;/p&gt;
+&lt;p class=&#34;hint&#34;&gt;2022/04/12&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!-- resource section --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Window.Resources&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;x:Key&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;myTaskTemplate&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=TaskName}&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=Description}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=Priority}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;DataTemplate&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;Window.Resources&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!-- end of section --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ListBox&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Width&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;400&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Margin&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#50fa7b&#34;&gt;ItemsSource&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Source={StaticResource myTodoList}}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#50fa7b&#34;&gt;ItemTemplate&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{StaticResource myTaskTemplate}&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;注意上面的ItemsSource 与 ItemTemplate&lt;/strong&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&#34;分享resources与themes&#34; &gt;分享resources与themes
+&lt;span&gt;
+    &lt;a href=&#34;#%e5%88%86%e4%ba%abresources%e4%b8%8ethemes&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/14&lt;/p&gt;
+&lt;p&gt;通过使用&lt;code&gt;ResourceDictionary&lt;/code&gt;,在WPF中，可将一些列UI资源打包成theme的功能。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ResourceDictionary.MergedDictionaries&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ResourceDictionary&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Source&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Shared.xaml&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;ResourceDictionary.MergedDictionaries&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;如何使用grasshopper制作动画&#34; &gt;如何使用Grasshopper制作动画
+&lt;span&gt;
+    &lt;a href=&#34;#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8grasshopper%e5%88%b6%e4%bd%9c%e5%8a%a8%e7%94%bb&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p&gt;可以使用&lt;code&gt;ScheduleSolution&lt;/code&gt;注册一个回调函数，下面是引用自Grasshopper开发者&lt;strong&gt;David Rutten&lt;/strong&gt;的一段话:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Grasshopper will not redraw the viewports until the solution has finished. So you&amp;rsquo;re assigning different values to A, But they keep overwriting eath other until you&amp;rsquo;re done. Only then will there be a redraw; If you want to animate a result, you can choose to either do it through the available solution mechanism, which means scheduling a solution 200 milliseconds in the future, and during that solution outputting a new value, or you can choose to do your own cycling, but then you cannot output the value from your component, because that requires regular solutions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下面是代码案例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;RunScript&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; N, &lt;span style=&#34;color:#8be9fd&#34;&gt;bool&lt;/span&gt; Run, ref object A)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (N &lt;span style=&#34;color:#ff79c6&#34;&gt;!=&lt;/span&gt; _maximum)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    _maximum &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; N;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    _counter &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; N;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  A &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; _counter;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  _run &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; Run;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (_counter &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    _run &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;false&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (_run)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    GrasshopperDocument.ScheduleSolution(&lt;span style=&#34;color:#bd93f9&#34;&gt;100&lt;/span&gt;, ScheduleCallback);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// &amp;lt;Custom additional code&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; _maximum &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; _counter &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;bool&lt;/span&gt; _run &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;false&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;ScheduleCallback&lt;/span&gt;(GH_Document document)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  _counter&lt;span style=&#34;color:#ff79c6&#34;&gt;--&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Component.ExpireSolution(&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;false&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;rhino软件中创建工具栏&#34; &gt;&lt;code&gt;Rhino&lt;/code&gt;软件中创建工具栏
+&lt;span&gt;
+    &lt;a href=&#34;#rhino%e8%bd%af%e4%bb%b6%e4%b8%ad%e5%88%9b%e5%bb%ba%e5%b7%a5%e5%85%b7%e6%a0%8f&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/14&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;Rhino&lt;/code&gt;中创建工具栏的方和&lt;code&gt;AutoCAD&lt;/code&gt;中类似，需要在软件中预先创建好&lt;code&gt;RUI&lt;/code&gt;(&lt;code&gt;tools&lt;/code&gt;&amp;ndash;&amp;gt;&lt;code&gt;toolbar Layout&lt;/code&gt;)文件（&lt;em&gt;AutoCAD中创建的工具栏文件后缀为&lt;code&gt;.cui&lt;/code&gt; 或&lt;code&gt;.cuix&lt;/code&gt;文件&lt;/em&gt;），然后在软件安装时，
+将其载入到Rhino软件中。通过要让Rhino软件在启动时自动加载工具栏.&lt;/p&gt;
+&lt;h3 id=&#34;code-behind-and-the-xaml-language&#34; &gt;&lt;code&gt;Code-behind&lt;/code&gt; and the XAML Language
+&lt;span&gt;
+    &lt;a href=&#34;#code-behind-and-the-xaml-language&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p&gt;The XAML language includes language-level features that make it possible to associate code file with markup files.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To delect source changes, the source must implement a suitable property change notification mechanism such as &lt;code&gt;INotifyPropertyChanged&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;一个自定义控件的完整代码&#34; &gt;一个自定义控件的完整代码
+&lt;span&gt;
+    &lt;a href=&#34;#%e4%b8%80%e4%b8%aa%e8%87%aa%e5%ae%9a%e4%b9%89%e6%8e%a7%e4%bb%b6%e7%9a%84%e5%ae%8c%e6%95%b4%e4%bb%a3%e7%a0%81&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;&lt;p class=&#34;hint&#34;&gt;2022/04/14&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;控件中的资源文件&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;UserControl&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;x:Class&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Weather.UserControls.CardDay&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#50fa7b&#34;&gt;xmlns&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;http://schemas.microsoft.com/winfx/2006/xaml/presentation&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#50fa7b&#34;&gt;xmlns:x&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;http://schemas.microsoft.com/winfx/2006/xaml&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#50fa7b&#34;&gt;xmlns:mc&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;http://schemas.openxmlformats.org/markup-compatibility/2006&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#50fa7b&#34;&gt;xmlns:d&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;http://schemas.microsoft.com/expression/blend/2008&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#50fa7b&#34;&gt;mc:Ignorable&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;d&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Name&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;cardDay&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;&amp;lt;!---style的行内表达方式 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Border&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;CornerRadius&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Width&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;85&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Padding&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Margin&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;0 0 10 0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;BorderThickness&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Border.Style&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Style&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TargetType&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Border&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Property&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Background&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Value&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;White&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Property&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;BorderBrush&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Value&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;#e9e9e9&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Style&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;Triggers&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Trigger&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Property&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;IsMouseOver&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Value&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;!&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Property&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Background&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Value&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;#F6F6F6&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Setter&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Property&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;BorderBrush&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;Value&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;#03A9F4&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Trigger&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Style&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;Triggers&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;Style&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;Border.Style&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=Day,ElementName=cardDay}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TextAlignment&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;FontSize&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;14&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;FontWeight&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SemiBold&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;Image&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Source&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=Source,ElementName=cardDay}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Width&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;30&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Margin&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;0 10 0 10&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Orientation&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Horizontal&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;HorizontalAlignment&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=MaxNum,ElementName=cardDay}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TextAlignment&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;FontWeight&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SemiBold&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Margin&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;0 0 8 0&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff79c6&#34;&gt;TextBlock&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Text&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;{Binding Path=MinNum,ElementName=cardDay}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;TextAlignment&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Center&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;FontWeight&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;SemiBold&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Foreground&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;#7a7a7a&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;StackPanel&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;Border&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff79c6&#34;&gt;UserControl&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;using&lt;/span&gt; System.Windows;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;using&lt;/span&gt; System.Windows.Controls;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;using&lt;/span&gt; System.Windows.Media;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;namespace&lt;/span&gt; Weather.UserControls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; partial &lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;CardDay&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;:&lt;/span&gt; UserControl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;CardDay&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            InitializeComponent();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;//define propertity
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; string Day
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            get { &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; (string)GetValue(DayProperty); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            set { SetValue(DayProperty, value); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;// 1.You can&amp;#39;t register same DP twice. To comply with this constraint you should use static variable, it will be initialized only one time thus you will register DP one time only.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;//2.DP should be registered before any class (which uses that DB) instance created
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#6272a4&#34;&gt;//
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;static&lt;/span&gt; readonly DependencyProperty DayProperty &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; DependencyProperty.Register(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Day&amp;#34;&lt;/span&gt;, typeof(string), typeof(CardDay));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; ImageSource Source
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            get { &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; (ImageSource)GetValue(SourceProperty); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            set { SetValue(SourceProperty, value); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;static&lt;/span&gt; readonly DependencyProperty SourceProperty &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; DependencyProperty.Register(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Source&amp;#34;&lt;/span&gt;, typeof(ImageSource), typeof(CardDay));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; string MaxNum
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            get { &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; (string)GetValue(MaxNumProperty); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            set { SetValue(MaxNumProperty, value); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;static&lt;/span&gt; readonly DependencyProperty MaxNumProperty &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; DependencyProperty.Register(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;MaxNum&amp;#34;&lt;/span&gt;, typeof(string), typeof(CardDay));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; string MinNum
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            get { &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; (string)GetValue(MinNumProperty); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            set { SetValue(MinNumProperty, value); }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;static&lt;/span&gt; readonly DependencyProperty MinNumProperty &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; DependencyProperty.Register(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;MinNum&amp;#34;&lt;/span&gt;, typeof(string), typeof(CardDay));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>ConfuserEx使用方法介绍</title>
@@ -212,15 +617,6 @@
     &lt;/a&gt;
 &lt;/span&gt;
 &lt;/h2&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://cughudson.github.io/posts/innosetup%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://cughudson.github.io/posts/innosetup%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D/</guid>
-      <description></description>
     </item>
     
   </channel>
