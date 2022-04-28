@@ -625,7 +625,14 @@ Resources 属性类别是 &lt;code&gt;ResourceDictionary&lt;/code&gt;，且该�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cughudson.github.io/resume/</guid>
-      <description>&lt;div class=&#34;badget&#34;&gt;&lt;span&gt;已过期！！&lt;/span&gt;&lt;/div&gt;
+      <description>&lt;h1 id=&#34;我的简历&#34; &gt;我的简历
+&lt;span&gt;
+    &lt;a href=&#34;#%e6%88%91%e7%9a%84%e7%ae%80%e5%8e%86&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h1&gt;&lt;!--
+&lt;div class=&#34;badget&#34;&gt;&lt;span&gt;已过期！！&lt;/span&gt;&lt;/div&gt;
 &lt;div class=&#34;disable&#34;&gt;
     &lt;section class=&#34;card&#34;&gt;
         &lt;div class=&#34;table-col&#34;&gt;
@@ -752,7 +759,8 @@ Resources 属性类别是 &lt;code&gt;ResourceDictionary&lt;/code&gt;，且该�
             &lt;code class=&#34;tag&#34;&gt;PMP项目管理资格认证&lt;/code&gt;
         &lt;/div&gt;
     &lt;/section&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;
+--&gt;</description>
     </item>
     
     <item>
@@ -761,8 +769,15 @@ Resources 属性类别是 &lt;code&gt;ResourceDictionary&lt;/code&gt;，且该�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cughudson.github.io/about/</guid>
-      <description>&lt;p&gt;我的名字***，于2014年毕业于中国地质大学（武汉）,本科专业为地理信息系统，同时辅修有华中科技大学的建筑学专业，毕业至今一直在中建体系内从事技术工作，目前在中国建筑（CSCEC）旗下的中建五局做幕墙BIM实施。从业以来参与&lt;code&gt;深圳国际会展中心&lt;/code&gt;，&lt;code&gt;中建科技馆&lt;/code&gt;等项目的BIM实施工作，其中前者为世界最大单体会展展馆，位于广东深圳，后者为世界最大不锈钢单体建筑，位于武汉光谷.&lt;/p&gt;
-&lt;p&gt;在做好本职工作的同时，在业余本人还喜欢编写程序，本网站即是本人使用&lt;code&gt;Hugo&lt;/code&gt;静态网页生成工具搭建的，目前托关于&lt;a href=&#34;http://github.com/cughudson/&#34;&gt;GitHub&lt;/a&gt;,通过自学本人已能够使用&lt;code&gt;JavaScript&lt;/code&gt;、&lt;code&gt;C#&lt;/code&gt;等编程语言编写一些简单的应用&lt;/p&gt;
+      <description>&lt;h1 id=&#34;这是我的简介&#34; &gt;这是我的简介
+&lt;span&gt;
+    &lt;a href=&#34;#%e8%bf%99%e6%98%af%e6%88%91%e7%9a%84%e7%ae%80%e4%bb%8b&#34;&gt;
+        &lt;svg viewBox=&#34;0 0 28 23&#34; height=&#34;100%&#34; width=&#34;19&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;path d=&#34;M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&#34; fill=&#34;none&#34; stroke-linecap=&#34;round&#34; stroke-miterlimit=&#34;10&#34; stroke-width=&#34;2&#34;/&gt;&lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/span&gt;
+&lt;/h1&gt;&lt;!--我的名字\*\*\*，于2014年毕业于中国地质大学（武汉）,地理信息系统专业，同时辅修有华中科技大学的建筑学专业，毕业至今一直从事建筑相关工作，目前在中国建筑（CSCEC）旗下的中建五局做幕墙BIM实施。从业以来参与`深圳国际会展中心`，`中建科技馆`等项目的BIM实施工作，其中前者为世界最大单体会展展馆，位于广东深圳，后者为世界最大不锈钢单体建筑，位于武汉光谷.
+
+在做好本职工作的同时，在业余本人还喜欢编写程序，本网站即是本人使用`Hugo`静态网页生成工具搭建的，目前托关于[GitHub](http://github.com/cughudson/),通过自学本人已能够使用`JavaScript`、`C#`等编程语言编写一些简单的应i用--&gt;
 </description>
     </item>
     
